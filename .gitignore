@@ -1,2 +1,1 @@
-# Keep build folder, track nothing else ...
-build/**
+build
