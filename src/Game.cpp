@@ -1,9 +1,28 @@
+#include <iostream>
+
 #include "Game.hpp"
 
-Game::Game() : window("mcflurry") { }
+Game::Game() : window("mcflurry")
+{
+    defaultTex.loadFromFile(workingDir.Get() + "test.png");
+    defaultSprite.setTexture(defaultTex);
+    deltaTime = clock.restart().asSeconds();
+}
 
 void Game::Update() {
+    std::cout << "dt: " << deltaTime << std::endl;
+
     window.Update();
+
+    const int pps = 50;
+    const float movement = pps * deltaTime;
+
+    const auto& newPos = sf::Vector2f{
+        defaultSprite.getPosition().x + movement,
+        defaultSprite.getPosition().y
+    };
+
+    defaultSprite.setPosition(newPos.x, newPos.y);
 }
 
 void Game::LateUpdate() { }
@@ -11,7 +30,7 @@ void Game::LateUpdate() { }
 void Game::Draw() {
     window.BeginDraw();
 
-    // We'll add draw code here ...
+    window.Draw(defaultSprite);
 
     window.EndDraw();
 }
@@ -19,4 +38,9 @@ void Game::Draw() {
 bool Game::IsRunning() const
 {
     return window.IsOpen();
+}
+
+void Game::CalculateDeltaTime()
+{
+    deltaTime = clock.restart().asSeconds();
 }

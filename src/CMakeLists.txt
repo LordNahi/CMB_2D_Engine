@@ -3,4 +3,5 @@ target_sources(${CMAKE_PROJECT_NAME}
         Game.cpp
         Main.cpp
         Window.cpp
+        WorkingDirectory.cpp
 )
