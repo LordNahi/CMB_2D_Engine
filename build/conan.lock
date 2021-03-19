@@ -1,0 +1,143 @@
+{
+ "graph_lock": {
+  "nodes": {
+   "0": {
+    "options": "bzip2:build_executable=True\nbzip2:fPIC=True\nbzip2:shared=False\nflac:fPIC=True\nflac:shared=False\nfmt:fPIC=True\nfmt:header_only=False\nfmt:shared=False\nfmt:with_fmt_alias=False\nfreetype:fPIC=True\nfreetype:shared=False\nfreetype:with_bzip2=True\nfreetype:with_png=True\nfreetype:with_zlib=True\nlibalsa:disable_python=True\nlibalsa:fPIC=True\nlibalsa:shared=False\nlibpng:api_prefix=None\nlibpng:fPIC=True\nlibpng:shared=False\nogg:fPIC=True\nogg:shared=False\nopenal:fPIC=True\nopenal:shared=False\nsfml:audio=True\nsfml:fPIC=True\nsfml:graphics=True\nsfml:network=True\nsfml:shared=False\nsfml:window=True\nvorbis:fPIC=True\nvorbis:shared=False\nzlib:fPIC=True\nzlib:minizip=False\nzlib:shared=False",
+    "requires": [
+     "1",
+     "14"
+    ],
+    "path": "conanfile.txt",
+    "context": "host"
+   },
+   "1": {
+    "ref": "sfml/2.5.1@bincrafters/stable",
+    "options": "audio=True\nfPIC=True\ngraphics=True\nnetwork=True\nshared=False\nwindow=True\nbzip2:build_executable=True\nbzip2:fPIC=True\nbzip2:shared=False\nflac:fPIC=True\nflac:shared=False\nfreetype:fPIC=True\nfreetype:shared=False\nfreetype:with_bzip2=True\nfreetype:with_png=True\nfreetype:with_zlib=True\nlibalsa:disable_python=True\nlibalsa:fPIC=True\nlibalsa:shared=False\nlibpng:api_prefix=None\nlibpng:fPIC=True\nlibpng:shared=False\nogg:fPIC=True\nogg:shared=False\nopenal:fPIC=True\nopenal:shared=False\nvorbis:fPIC=True\nvorbis:shared=False\nzlib:fPIC=True\nzlib:minizip=False\nzlib:shared=False",
+    "package_id": "1d45e316e71aa76e122414be8f4c0d6688deabd4",
+    "prev": "0",
+    "requires": [
+     "2",
+     "6",
+     "7",
+     "9",
+     "10",
+     "11",
+     "12",
+     "13"
+    ],
+    "context": "host"
+   },
+   "2": {
+    "ref": "freetype/2.10.1",
+    "options": "fPIC=True\nshared=False\nwith_bzip2=True\nwith_png=True\nwith_zlib=True\nbzip2:build_executable=True\nbzip2:fPIC=True\nbzip2:shared=False\nlibpng:api_prefix=None\nlibpng:fPIC=True\nlibpng:shared=False\nzlib:fPIC=True\nzlib:minizip=False\nzlib:shared=False",
+    "package_id": "1381eb533150a52ee50820711faa223d436deba1",
+    "prev": "0",
+    "requires": [
+     "3",
+     "4",
+     "5"
+    ],
+    "context": "host"
+   },
+   "3": {
+    "ref": "libpng/1.6.37",
+    "options": "api_prefix=None\nfPIC=True\nshared=False\nzlib:fPIC=True\nzlib:minizip=False\nzlib:shared=False",
+    "package_id": "1e8b7ff23bd5e7932ba7e8874349125fdf8e91ec",
+    "prev": "0",
+    "requires": [
+     "4"
+    ],
+    "context": "host"
+   },
+   "4": {
+    "ref": "zlib/1.2.11",
+    "options": "fPIC=True\nminizip=False\nshared=False",
+    "package_id": "6b7ff26bfd4c2cf2ccba522bfba2d2e7820e40da",
+    "prev": "0",
+    "context": "host"
+   },
+   "5": {
+    "ref": "bzip2/1.0.8",
+    "options": "build_executable=True\nfPIC=True\nshared=False",
+    "package_id": "ff2ff6bb41ed84283a6634bada252c37f13eb93c",
+    "prev": "0",
+    "context": "host"
+   },
+   "6": {
+    "ref": "stb/20200203",
+    "options": "",
+    "package_id": "5ab84d6acfe1f23c4fae0ab88f26e3a396351ac9",
+    "prev": "0",
+    "context": "host"
+   },
+   "7": {
+    "ref": "openal/1.19.1",
+    "options": "fPIC=True\nshared=False\nlibalsa:disable_python=True\nlibalsa:fPIC=True\nlibalsa:shared=False",
+    "package_id": "395a697543c6d91c9cea7263a9a7a1fd3e6ce3fd",
+    "prev": "0",
+    "requires": [
+     "8"
+    ],
+    "context": "host"
+   },
+   "8": {
+    "ref": "libalsa/1.2.4",
+    "options": "disable_python=True\nfPIC=True\nshared=False",
+    "package_id": "847849d4cc4b6352c8023780ae6930933f613ad9",
+    "prev": "0",
+    "context": "host"
+   },
+   "9": {
+    "ref": "flac/1.3.3",
+    "options": "fPIC=True\nshared=False\nogg:fPIC=True\nogg:shared=False",
+    "package_id": "18e127a3cdb0f6639b6def6067ba912bdf1053a3",
+    "prev": "0",
+    "requires": [
+     "10"
+    ],
+    "context": "host"
+   },
+   "10": {
+    "ref": "ogg/1.3.4",
+    "options": "fPIC=True\nshared=False",
+    "package_id": "6b7ff26bfd4c2cf2ccba522bfba2d2e7820e40da",
+    "prev": "0",
+    "context": "host"
+   },
+   "11": {
+    "ref": "vorbis/1.3.6",
+    "options": "fPIC=True\nshared=False\nogg:fPIC=True\nogg:shared=False",
+    "package_id": "b64f670df847327ead52ac5bfa3722faedc2edc3",
+    "prev": "0",
+    "requires": [
+     "10"
+    ],
+    "context": "host"
+   },
+   "12": {
+    "ref": "xorg/system",
+    "options": "",
+    "package_id": "5ab84d6acfe1f23c4fae0ab88f26e3a396351ac9",
+    "prev": "0",
+    "context": "host"
+   },
+   "13": {
+    "ref": "opengl/system",
+    "options": "",
+    "package_id": "5ab84d6acfe1f23c4fae0ab88f26e3a396351ac9",
+    "prev": "0",
+    "context": "host"
+   },
+   "14": {
+    "ref": "fmt/7.1.3",
+    "options": "fPIC=True\nheader_only=False\nshared=False\nwith_fmt_alias=False",
+    "package_id": "f54287fc3dbd09590f968b580bebb565ea4a4b17",
+    "prev": "0",
+    "context": "host"
+   }
+  },
+  "revisions_enabled": false
+ },
+ "version": "0.4",
+ "profile_host": "[settings]\narch=x86_64\narch_build=x86_64\nbuild_type=RelWithDebInfo\ncompiler=gcc\ncompiler.libcxx=libstdc++11\ncompiler.version=9\nos=Linux\nos_build=Linux\n[options]\n[build_requires]\n[env]\n"
+}

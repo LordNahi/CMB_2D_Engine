@@ -1,0 +1,38 @@
+{
+    "configurations": [
+        {
+            "name": "Win32",
+            "includePath": [
+                "${workspaceFolder}\\include",
+                "${workspaceFolder}\\CMB\\include",
+                "${workspaceFolder}\\CMB\\ECS\\include",
+                "D:\\SFML-2.5.1\\include"
+            ],
+            "defines": [
+                "_DEBUG",
+                "UNICODE",
+                "_UNICODE"
+            ],
+            "compilerPath": "D:\\msys64\\mingw64\\bin\\gcc.exe",
+            "cStandard": "gnu17",
+            "cppStandard": "gnu++17",
+            "intelliSenseMode": "gcc-x64"
+        },
+        {
+            "name": "Ubuntu",
+            "includePath": [
+                "${workspaceFolder}/include",
+                "${workspaceFolder}/CMB/include",
+                "~/.conan/data/sfml/2.5.1/bincrafters/stable/source/source_subfolder/include"
+            ],
+            "cStandard": "gnu17",
+            "cppStandard": "gnu++17",
+            "defines": [
+                "_DEBUG",
+                "UNICODE",
+                "_UNICODE"
+            ]
+        }
+    ],
+    "version": 4
+}
