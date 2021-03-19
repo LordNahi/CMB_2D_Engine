@@ -142,32 +142,86 @@ main_engine/fast:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/main_engine.dir/build.make CMakeFiles/main_engine.dir/build
 .PHONY : main_engine/fast
 
-src/main.o: src/main.cpp.o
+src/Game.o: src/Game.cpp.o
 
-.PHONY : src/main.o
+.PHONY : src/Game.o
 
 # target to build an object file
-src/main.cpp.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/main_engine.dir/build.make CMakeFiles/main_engine.dir/src/main.cpp.o
-.PHONY : src/main.cpp.o
+src/Game.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/main_engine.dir/build.make CMakeFiles/main_engine.dir/src/Game.cpp.o
+.PHONY : src/Game.cpp.o
 
-src/main.i: src/main.cpp.i
+src/Game.i: src/Game.cpp.i
 
-.PHONY : src/main.i
+.PHONY : src/Game.i
 
 # target to preprocess a source file
-src/main.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/main_engine.dir/build.make CMakeFiles/main_engine.dir/src/main.cpp.i
-.PHONY : src/main.cpp.i
+src/Game.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/main_engine.dir/build.make CMakeFiles/main_engine.dir/src/Game.cpp.i
+.PHONY : src/Game.cpp.i
 
-src/main.s: src/main.cpp.s
+src/Game.s: src/Game.cpp.s
 
-.PHONY : src/main.s
+.PHONY : src/Game.s
 
 # target to generate assembly for a file
-src/main.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/main_engine.dir/build.make CMakeFiles/main_engine.dir/src/main.cpp.s
-.PHONY : src/main.cpp.s
+src/Game.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/main_engine.dir/build.make CMakeFiles/main_engine.dir/src/Game.cpp.s
+.PHONY : src/Game.cpp.s
+
+src/Main.o: src/Main.cpp.o
+
+.PHONY : src/Main.o
+
+# target to build an object file
+src/Main.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/main_engine.dir/build.make CMakeFiles/main_engine.dir/src/Main.cpp.o
+.PHONY : src/Main.cpp.o
+
+src/Main.i: src/Main.cpp.i
+
+.PHONY : src/Main.i
+
+# target to preprocess a source file
+src/Main.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/main_engine.dir/build.make CMakeFiles/main_engine.dir/src/Main.cpp.i
+.PHONY : src/Main.cpp.i
+
+src/Main.s: src/Main.cpp.s
+
+.PHONY : src/Main.s
+
+# target to generate assembly for a file
+src/Main.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/main_engine.dir/build.make CMakeFiles/main_engine.dir/src/Main.cpp.s
+.PHONY : src/Main.cpp.s
+
+src/Window.o: src/Window.cpp.o
+
+.PHONY : src/Window.o
+
+# target to build an object file
+src/Window.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/main_engine.dir/build.make CMakeFiles/main_engine.dir/src/Window.cpp.o
+.PHONY : src/Window.cpp.o
+
+src/Window.i: src/Window.cpp.i
+
+.PHONY : src/Window.i
+
+# target to preprocess a source file
+src/Window.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/main_engine.dir/build.make CMakeFiles/main_engine.dir/src/Window.cpp.i
+.PHONY : src/Window.cpp.i
+
+src/Window.s: src/Window.cpp.s
+
+.PHONY : src/Window.s
+
+# target to generate assembly for a file
+src/Window.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/main_engine.dir/build.make CMakeFiles/main_engine.dir/src/Window.cpp.s
+.PHONY : src/Window.cpp.s
 
 # Help Target
 help:
@@ -178,9 +232,15 @@ help:
 	@echo "... edit_cache"
 	@echo "... rebuild_cache"
 	@echo "... main_engine"
-	@echo "... src/main.o"
-	@echo "... src/main.i"
-	@echo "... src/main.s"
+	@echo "... src/Game.o"
+	@echo "... src/Game.i"
+	@echo "... src/Game.s"
+	@echo "... src/Main.o"
+	@echo "... src/Main.i"
+	@echo "... src/Main.s"
+	@echo "... src/Window.o"
+	@echo "... src/Window.i"
+	@echo "... src/Window.s"
 .PHONY : help
 
 

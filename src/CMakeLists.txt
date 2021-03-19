@@ -1,4 +1,6 @@
 target_sources(${CMAKE_PROJECT_NAME}
     PRIVATE
-        main.cpp
+        Game.cpp
+        Main.cpp
+        Window.cpp
 )

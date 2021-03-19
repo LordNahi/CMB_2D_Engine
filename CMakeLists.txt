@@ -16,7 +16,7 @@ add_library(project_warnings INTERFACE)
 include(cmake/CompilerWarnings.cmake)
 
 # TODO: Uncomment the following line and fix the issues that come up ...
-set_project_warnings(project_warnings)
+# set_project_warnings(project_warnings)
 
 # Conan
 include(cmake/Conan.cmake)

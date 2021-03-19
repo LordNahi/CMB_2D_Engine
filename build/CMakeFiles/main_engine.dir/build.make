@@ -76,27 +76,57 @@ include CMakeFiles/main_engine.dir/progress.make
 # Include the compile flags for this target's objects.
 include CMakeFiles/main_engine.dir/flags.make
 
-CMakeFiles/main_engine.dir/src/main.cpp.o: CMakeFiles/main_engine.dir/flags.make
-CMakeFiles/main_engine.dir/src/main.cpp.o: ../src/main.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/nathan/Documents/projects/game_engine/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object CMakeFiles/main_engine.dir/src/main.cpp.o"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/main_engine.dir/src/main.cpp.o -c /home/nathan/Documents/projects/game_engine/src/main.cpp
+CMakeFiles/main_engine.dir/src/Game.cpp.o: CMakeFiles/main_engine.dir/flags.make
+CMakeFiles/main_engine.dir/src/Game.cpp.o: ../src/Game.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/nathan/Documents/projects/game_engine/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object CMakeFiles/main_engine.dir/src/Game.cpp.o"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/main_engine.dir/src/Game.cpp.o -c /home/nathan/Documents/projects/game_engine/src/Game.cpp
 
-CMakeFiles/main_engine.dir/src/main.cpp.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/main_engine.dir/src/main.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/nathan/Documents/projects/game_engine/src/main.cpp > CMakeFiles/main_engine.dir/src/main.cpp.i
+CMakeFiles/main_engine.dir/src/Game.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/main_engine.dir/src/Game.cpp.i"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/nathan/Documents/projects/game_engine/src/Game.cpp > CMakeFiles/main_engine.dir/src/Game.cpp.i
 
-CMakeFiles/main_engine.dir/src/main.cpp.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/main_engine.dir/src/main.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/nathan/Documents/projects/game_engine/src/main.cpp -o CMakeFiles/main_engine.dir/src/main.cpp.s
+CMakeFiles/main_engine.dir/src/Game.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/main_engine.dir/src/Game.cpp.s"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/nathan/Documents/projects/game_engine/src/Game.cpp -o CMakeFiles/main_engine.dir/src/Game.cpp.s
+
+CMakeFiles/main_engine.dir/src/Main.cpp.o: CMakeFiles/main_engine.dir/flags.make
+CMakeFiles/main_engine.dir/src/Main.cpp.o: ../src/Main.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/nathan/Documents/projects/game_engine/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building CXX object CMakeFiles/main_engine.dir/src/Main.cpp.o"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/main_engine.dir/src/Main.cpp.o -c /home/nathan/Documents/projects/game_engine/src/Main.cpp
+
+CMakeFiles/main_engine.dir/src/Main.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/main_engine.dir/src/Main.cpp.i"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/nathan/Documents/projects/game_engine/src/Main.cpp > CMakeFiles/main_engine.dir/src/Main.cpp.i
+
+CMakeFiles/main_engine.dir/src/Main.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/main_engine.dir/src/Main.cpp.s"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/nathan/Documents/projects/game_engine/src/Main.cpp -o CMakeFiles/main_engine.dir/src/Main.cpp.s
+
+CMakeFiles/main_engine.dir/src/Window.cpp.o: CMakeFiles/main_engine.dir/flags.make
+CMakeFiles/main_engine.dir/src/Window.cpp.o: ../src/Window.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/nathan/Documents/projects/game_engine/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Building CXX object CMakeFiles/main_engine.dir/src/Window.cpp.o"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/main_engine.dir/src/Window.cpp.o -c /home/nathan/Documents/projects/game_engine/src/Window.cpp
+
+CMakeFiles/main_engine.dir/src/Window.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/main_engine.dir/src/Window.cpp.i"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/nathan/Documents/projects/game_engine/src/Window.cpp > CMakeFiles/main_engine.dir/src/Window.cpp.i
+
+CMakeFiles/main_engine.dir/src/Window.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/main_engine.dir/src/Window.cpp.s"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/nathan/Documents/projects/game_engine/src/Window.cpp -o CMakeFiles/main_engine.dir/src/Window.cpp.s
 
 # Object files for target main_engine
 main_engine_OBJECTS = \
-"CMakeFiles/main_engine.dir/src/main.cpp.o"
+"CMakeFiles/main_engine.dir/src/Game.cpp.o" \
+"CMakeFiles/main_engine.dir/src/Main.cpp.o" \
+"CMakeFiles/main_engine.dir/src/Window.cpp.o"
 
 # External object files for target main_engine
 main_engine_EXTERNAL_OBJECTS =
 
-bin/main_engine: CMakeFiles/main_engine.dir/src/main.cpp.o
+bin/main_engine: CMakeFiles/main_engine.dir/src/Game.cpp.o
+bin/main_engine: CMakeFiles/main_engine.dir/src/Main.cpp.o
+bin/main_engine: CMakeFiles/main_engine.dir/src/Window.cpp.o
 bin/main_engine: CMakeFiles/main_engine.dir/build.make
 bin/main_engine: /home/nathan/.conan/data/sfml/2.5.1/bincrafters/stable/package/1d45e316e71aa76e122414be8f4c0d6688deabd4/lib/libsfml-graphics-s.a
 bin/main_engine: /home/nathan/.conan/data/sfml/2.5.1/bincrafters/stable/package/1d45e316e71aa76e122414be8f4c0d6688deabd4/lib/libsfml-window-s.a
@@ -117,7 +147,7 @@ bin/main_engine: /home/nathan/.conan/data/vorbis/1.3.6/_/_/package/b64f670df8473
 bin/main_engine: /home/nathan/.conan/data/ogg/1.3.4/_/_/package/6b7ff26bfd4c2cf2ccba522bfba2d2e7820e40da/lib/libogg.a
 bin/main_engine: /home/nathan/.conan/data/fmt/7.1.3/_/_/package/f54287fc3dbd09590f968b580bebb565ea4a4b17/lib/libfmt.a
 bin/main_engine: CMakeFiles/main_engine.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/home/nathan/Documents/projects/game_engine/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Linking CXX executable bin/main_engine"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/home/nathan/Documents/projects/game_engine/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Linking CXX executable bin/main_engine"
 	$(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/main_engine.dir/link.txt --verbose=$(VERBOSE)
 
 # Rule to build all files generated by this target.
