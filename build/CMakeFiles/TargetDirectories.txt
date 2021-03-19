@@ -1,5 +1,0 @@
-/home/nathan/Documents/projects/game_engine/build/CMakeFiles/rebuild_cache.dir
-/home/nathan/Documents/projects/game_engine/build/CMakeFiles/main_engine.dir
-/home/nathan/Documents/projects/game_engine/build/CMakeFiles/edit_cache.dir
-/home/nathan/Documents/projects/game_engine/build/src/CMakeFiles/rebuild_cache.dir
-/home/nathan/Documents/projects/game_engine/build/src/CMakeFiles/edit_cache.dir
