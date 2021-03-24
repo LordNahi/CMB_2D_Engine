@@ -3,6 +3,7 @@
 
 #include "Window.hpp"
 #include "WorkingDirectory.hpp"
+#include "Input.hpp"
 
 class Game
 {
@@ -14,10 +15,12 @@ class Game
         void Draw();
         bool IsRunning() const;
         void CalculateDeltaTime();
+        void CaptureInput();
 
     private:
         Window window;
         WorkingDirectory workingDir;
+        Input input;
 
         // Temp ...
         sf::Texture defaultTex;

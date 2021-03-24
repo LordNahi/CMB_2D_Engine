@@ -31,7 +31,7 @@ void Bitmask::SetBit(int pos, bool on)
 
 void Bitmask::SetBit(int pos)
 {
-    bits = bits & ~(1 << pos);
+    bits = bits | 1 << pos;
 }
 
 void Bitmask::ClearBit(int pos)

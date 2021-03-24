@@ -9,20 +9,45 @@ Game::Game() : window("mcflurry")
     deltaTime = clock.restart().asSeconds();
 }
 
-void Game::Update() {
-    std::cout << "dt: " << deltaTime << std::endl;
+void Game::CaptureInput()
+{
+    input.Update();
+}
 
+void Game::Update() {
     window.Update();
 
-    const int pps = 50;
-    const float movement = pps * deltaTime;
+    const int speed = 100;
+    const float movement = speed * deltaTime;
+    
+    auto directionVec = sf::Vector2i{0, 0};
 
-    const auto& newPos = sf::Vector2f{
-        defaultSprite.getPosition().x + movement,
-        defaultSprite.getPosition().y
+    if (input.IsKeyPressed(Input::Key::Up))
+    {
+        directionVec.y = -1;
+    }
+
+    if (input.IsKeyPressed(Input::Key::Down))
+    {
+        directionVec.y = 1;
+    }
+
+    if (input.IsKeyPressed(Input::Key::Left))
+    {
+        directionVec.x = -1;
+    }
+
+    if (input.IsKeyPressed(Input::Key::Right))
+    {
+        directionVec.x = 1;
+    }
+
+    const auto& updatedPos = sf::Vector2f{
+        defaultSprite.getPosition().x + movement * directionVec.x,
+        defaultSprite.getPosition().y + movement * directionVec.y
     };
 
-    defaultSprite.setPosition(newPos.x, newPos.y);
+    defaultSprite.setPosition(updatedPos.x, updatedPos.y);
 }
 
 void Game::LateUpdate() { }
