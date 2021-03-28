@@ -4,30 +4,32 @@
 #include "Window.hpp"
 #include "WorkingDirectory.hpp"
 #include "Input.hpp"
+#include "SceneStateMachine.hpp"
+
+// Game Scenes ...
+#include "SceneSplash.hpp"
+#include "SceneGame.hpp"
 
 class Game
 {
     public:
         Game();
 
+        void ProcessInput();
         void Update();
         void LateUpdate();
         void Draw();
-        bool IsRunning() const;
         void CalculateDeltaTime();
-        void CaptureInput();
+        bool IsRunning() const;
 
     private:
         Window window;
         WorkingDirectory workingDir;
-        Input input;
-
-        // Temp ...
-        sf::Texture defaultTex;
-        sf::Sprite defaultSprite;
 
         sf::Clock clock;
         float deltaTime;
+
+        SceneStateMachine sceneStateMachine;
 };
 
 #endif /* Game_hpp */

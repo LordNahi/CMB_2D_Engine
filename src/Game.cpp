@@ -4,58 +4,38 @@
 
 Game::Game() : window("mcflurry")
 {
-    defaultTex.loadFromFile(workingDir.Get() + "test.png");
-    defaultSprite.setTexture(defaultTex);
+    auto sceneSplash = std::make_shared<SceneSplash>(workingDir, sceneStateMachine, window);
+    auto sceneGame = std::make_shared<SceneGame>(workingDir);
+
+    unsigned int sceneSplashID = sceneStateMachine.Add(sceneSplash);
+    unsigned int sceneGameID = sceneStateMachine.Add(sceneGame);
+
+    sceneSplash->SetSwitchToScene(sceneGameID);
+    
+    sceneStateMachine.SwitchTo(sceneSplashID);
+
     deltaTime = clock.restart().asSeconds();
 }
 
-void Game::CaptureInput()
+void Game::ProcessInput()
 {
-    input.Update();
+    sceneStateMachine.ProcessInput();
 }
 
 void Game::Update() {
     window.Update();
 
-    const int speed = 100;
-    const float movement = speed * deltaTime;
-    
-    auto directionVec = sf::Vector2i{0, 0};
-
-    if (input.IsKeyPressed(Input::Key::Up))
-    {
-        directionVec.y = -1;
-    }
-
-    if (input.IsKeyPressed(Input::Key::Down))
-    {
-        directionVec.y = 1;
-    }
-
-    if (input.IsKeyPressed(Input::Key::Left))
-    {
-        directionVec.x = -1;
-    }
-
-    if (input.IsKeyPressed(Input::Key::Right))
-    {
-        directionVec.x = 1;
-    }
-
-    const auto& updatedPos = sf::Vector2f{
-        defaultSprite.getPosition().x + movement * directionVec.x,
-        defaultSprite.getPosition().y + movement * directionVec.y
-    };
-
-    defaultSprite.setPosition(updatedPos.x, updatedPos.y);
+    sceneStateMachine.Update(deltaTime);
 }
 
-void Game::LateUpdate() { }
+void Game::LateUpdate() {
+    sceneStateMachine.LateUpdate(deltaTime);
+}
 
 void Game::Draw() {
     window.BeginDraw();
 
-    window.Draw(defaultSprite);
+    sceneStateMachine.Draw(window);
 
     window.EndDraw();
 }

@@ -6,4 +6,7 @@ target_sources(${CMAKE_PROJECT_NAME}
         Main.cpp
         Window.cpp
         WorkingDirectory.cpp
+        SceneStateMachine.cpp
+        SceneGame.cpp
+        SceneSplash.cpp
 )

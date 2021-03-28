@@ -38,3 +38,11 @@ bool Window::IsOpen() const
 {
     return window.isOpen();
 }
+
+sf::Vector2u Window::GetCenter() const
+{
+    return {
+        window.getSize().x / 2,
+        window.getSize().y / 2
+    };
+}
