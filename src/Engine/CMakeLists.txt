@@ -1,0 +1,12 @@
+add_subdirectory(ECS)
+
+target_sources(${CMAKE_PROJECT_NAME}
+    PRIVATE
+        Bitmask.cpp
+        Game.cpp
+        Input.cpp
+        Main.cpp
+        Window.cpp
+        WorkingDirectory.cpp
+        SceneStateMachine.cpp
+)

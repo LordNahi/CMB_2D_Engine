@@ -1,6 +1,6 @@
 #include <iostream>
 
-#include "Game.hpp"
+#include "Engine/Game.hpp"
 
 Game::Game() : window("mcflurry")
 {

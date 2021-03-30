@@ -1,4 +1,4 @@
-#include "Object.hpp"
+#include "Engine/ECS/Object.hpp"
 
 void Object::Awake()
 {

@@ -21,7 +21,7 @@ void SceneSplash::OnCreate()
     splashSprite.setOrigin(spriteSize.width * 0.5f,
                            spriteSize.height * 0.5f);
     
-    splashSprite.setScale(0.5f, 0.5f);
+    splashSprite.setScale(2.f, 2.f);
     
     sf::Vector2u windowCenter = window.GetCenter();
 

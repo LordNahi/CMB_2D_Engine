@@ -1,7 +1,7 @@
 #ifndef Scene_hpp
 #define Scene_hpp
 
-#include "Window.hpp"
+#include "Engine/Window.hpp"
 
 class Scene
 {

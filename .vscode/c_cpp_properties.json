@@ -22,6 +22,8 @@
             "name": "Ubuntu",
             "includePath": [
                 "${workspaceFolder}/include",
+                "${workspaceFolder}/include/Engine",
+                "${workspaceFolder}/include/Engine/ECS",
                 "~/.conan/data/sfml/2.5.1/bincrafters/stable/source/source_subfolder/include"
             ],
             "cStandard": "gnu17",

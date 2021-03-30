@@ -3,8 +3,8 @@
 
 #include <memory>
 
-#include "Scene.hpp"
-#include "Window.hpp"
+#include "Engine/Scene.hpp"
+#include "Engine/Window.hpp"
 
 class SceneStateMachine
 {

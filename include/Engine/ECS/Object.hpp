@@ -4,8 +4,8 @@
 #include <memory>
 #include <vector>
 
-#include "Component.hpp"
-#include "Window.hpp"
+#include "Engine/ECS/Component.hpp"
+#include "Engine/Window.hpp"
 
 class Object
 {

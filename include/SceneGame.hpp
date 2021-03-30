@@ -1,9 +1,9 @@
 #ifndef SceneGame_hpp
 #define SceneGame_hpp
 
-#include "Scene.hpp"
-#include "Input.hpp"
-#include "WorkingDirectory.hpp"
+#include "Engine/Scene.hpp"
+#include "Engine/Input.hpp"
+#include "Engine/WorkingDirectory.hpp"
 
 class SceneGame : public Scene
 {

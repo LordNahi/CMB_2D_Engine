@@ -1,10 +1,10 @@
 #ifndef Game_hpp
 #define Game_hpp
 
-#include "Window.hpp"
-#include "WorkingDirectory.hpp"
-#include "Input.hpp"
-#include "SceneStateMachine.hpp"
+#include "Engine/Window.hpp"
+#include "Engine/WorkingDirectory.hpp"
+#include "Engine/Input.hpp"
+#include "Engine/SceneStateMachine.hpp"
 
 // Game Scenes ...
 #include "SceneSplash.hpp"
