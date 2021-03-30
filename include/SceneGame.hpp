@@ -1,9 +1,12 @@
 #ifndef SceneGame_hpp
 #define SceneGame_hpp
 
+#include <memory>
+
 #include "Engine/Scene.hpp"
 #include "Engine/Input.hpp"
 #include "Engine/WorkingDirectory.hpp"
+#include "Engine/ECS/Object.hpp"
 
 class SceneGame : public Scene
 {
@@ -21,8 +24,7 @@ class SceneGame : public Scene
         WorkingDirectory workingDir;
         Input input;
 
-        sf::Texture defaultTex;
-        sf::Sprite defaultSprite;
+        std::shared_ptr<Object> player;
 };
 
 #endif /* SceneGame_hpp */
