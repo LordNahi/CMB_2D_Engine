@@ -1,7 +1,7 @@
 
 # Building with CMake (Linux)
 
-All the code is based off the SFML tutorial found at: https://github.com/LordNahi/CMB_2D_Engine.git
+All the code is based off the SFML/C++ tutorial found at: https://thatgamesguy.co.uk/
 
 This will serve as a project game engine to be used for future projects.
 
