@@ -9,4 +9,5 @@ target_sources(${CMAKE_PROJECT_NAME}
         SceneStateMachine.cpp
         SceneGame.cpp
         SceneSplash.cpp
+        Object.cpp
 )
