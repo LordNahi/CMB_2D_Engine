@@ -3,6 +3,7 @@
 
 #include <SFML/Graphics.hpp>
 
+#include "Engine/ResourceAllocator.hpp"
 #include "Engine/SceneStateMachine.hpp"
 #include "Engine/WorkingDirectory.hpp"
 
@@ -12,6 +13,7 @@ class SceneSplash : public Scene
         SceneSplash(
             WorkingDirectory& workingDir,
             SceneStateMachine& sceneStateMaching,
+            ResourceAllocator<sf::Texture>& textureAllocator,
             Window& window);
 
         void OnCreate() override;
@@ -24,15 +26,14 @@ class SceneSplash : public Scene
         void Draw(Window& window) override;
 
     private:
-        sf::Texture splashTexture;
-        sf::Sprite splashSprite;
-
         WorkingDirectory& workingDir;
         SceneStateMachine& sceneStateMachine;
+        ResourceAllocator<sf::Texture>& textureAllocator;
         Window& window;
 
-        float showForSeconds;
+        sf::Sprite splashSprite;
 
+        float showForSeconds;
         float currentSeconds;
 
         unsigned int switchToState;

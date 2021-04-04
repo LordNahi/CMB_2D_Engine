@@ -3,6 +3,7 @@
 
 #include <memory>
 
+#include "Engine/ResourceAllocator.hpp"
 #include "Engine/Scene.hpp"
 #include "Engine/Input.hpp"
 #include "Engine/WorkingDirectory.hpp"
@@ -11,7 +12,9 @@
 class SceneGame : public Scene
 {
     public:
-        SceneGame(WorkingDirectory& workingDir);
+        SceneGame(
+            WorkingDirectory& workingDir,
+            ResourceAllocator<sf::Texture>& textureAllocator);
 
         void OnCreate() override;
         void OnDestroy() override;
@@ -22,7 +25,8 @@ class SceneGame : public Scene
         void Draw(Window& window) override;
 
     private:
-        WorkingDirectory workingDir;
+        WorkingDirectory& workingDir;
+        ResourceAllocator<sf::Texture>& textureAllocator;
         Input input;
 
         std::shared_ptr<Object> player;

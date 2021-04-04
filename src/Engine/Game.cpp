@@ -4,8 +4,8 @@
 
 Game::Game() : window("mcflurry")
 {
-    auto sceneSplash = std::make_shared<SceneSplash>(workingDir, sceneStateMachine, window);
-    auto sceneGame = std::make_shared<SceneGame>(workingDir);
+    auto sceneSplash = std::make_shared<SceneSplash>(workingDir, sceneStateMachine, textureAllocator, window);
+    auto sceneGame = std::make_shared<SceneGame>(workingDir, textureAllocator);
 
     unsigned int sceneSplashID = sceneStateMachine.Add(sceneSplash);
     unsigned int sceneGameID = sceneStateMachine.Add(sceneGame);

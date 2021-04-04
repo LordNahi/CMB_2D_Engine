@@ -5,6 +5,7 @@
 #include "Engine/WorkingDirectory.hpp"
 #include "Engine/Input.hpp"
 #include "Engine/SceneStateMachine.hpp"
+#include "Engine/ResourceAllocator.hpp"
 
 // Game Scenes ...
 #include "SceneSplash.hpp"
@@ -25,6 +26,7 @@ class Game
     private:
         Window window;
         WorkingDirectory workingDir;
+        ResourceAllocator<sf::Texture> textureAllocator;
 
         sf::Clock clock;
         float deltaTime;

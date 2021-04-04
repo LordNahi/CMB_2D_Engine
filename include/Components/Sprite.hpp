@@ -2,6 +2,7 @@
 #define Sprite_hpp
 
 #include "Engine/ECS/Component.hpp"
+#include "Engine/ResourceAllocator.hpp"
 
 class Sprite : public Component
 {
@@ -10,6 +11,9 @@ class Sprite : public Component
 
         // Loads a sprite from file ...
         void Load(const std::string& filePath);
+        void Load(int id);
+
+        void SetTextureAllocator(ResourceAllocator<sf::Texture>* allocator);
 
         // Override Component's Draw method ...
         void Draw(Window& window) override;
@@ -18,7 +22,7 @@ class Sprite : public Component
         void LateUpdate(float deltaTime) override;
 
     private:
-        sf::Texture texture;
+        ResourceAllocator<sf::Texture>* allocator;
         sf::Sprite sprite;
 };
 

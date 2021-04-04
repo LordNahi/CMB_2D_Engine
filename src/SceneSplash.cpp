@@ -3,8 +3,12 @@
 SceneSplash::SceneSplash(
     WorkingDirectory& workingDir,
     SceneStateMachine& sceneStateMachine,
-    Window& window) : workingDir(workingDir),
+    ResourceAllocator<sf::Texture>& textureAllocator,
+    Window& window)
+    :
+    workingDir(workingDir),
     sceneStateMachine(sceneStateMachine),
+    textureAllocator(textureAllocator),
     window(window),
     switchToState(0),
     currentSeconds(0.f),
@@ -13,19 +17,21 @@ SceneSplash::SceneSplash(
 
 void SceneSplash::OnCreate()
 {
-    splashTexture.loadFromFile(workingDir.Get() + "splash.png");
-    splashSprite.setTexture(splashTexture);
+    int textureID = textureAllocator.Add(workingDir.Get() + "splash.png");
 
-    sf::FloatRect spriteSize = splashSprite.getLocalBounds();
+    if (textureID >= 0)
+    {
+        splashSprite.setTexture(*textureAllocator.Get(textureID));
 
-    splashSprite.setOrigin(spriteSize.width * 0.5f,
-                           spriteSize.height * 0.5f);
-    
-    splashSprite.setScale(2.f, 2.f);
-    
-    sf::Vector2u windowCenter = window.GetCenter();
+        sf::FloatRect spriteSize = splashSprite.getLocalBounds();
 
-    splashSprite.setPosition(windowCenter.x, windowCenter.y);
+        splashSprite.setOrigin(spriteSize.width * 0.5f, spriteSize.height * 0.5f);
+        splashSprite.setScale(2.f, 2.f);
+        
+        sf::Vector2u windowCenter = window.GetCenter();
+
+        splashSprite.setPosition(windowCenter.x, windowCenter.y);
+    }
 }
 
 void SceneSplash::OnActivate()

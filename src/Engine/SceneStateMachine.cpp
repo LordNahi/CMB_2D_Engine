@@ -1,3 +1,5 @@
+#include <iostream>
+
 #include "Engine/SceneStateMachine.hpp"
 
 SceneStateMachine::SceneStateMachine() : scenes(0), curScene(0) { }
@@ -64,6 +66,8 @@ void SceneStateMachine::Remove(unsigned int id)
 
 void SceneStateMachine::SwitchTo(unsigned int id)
 {
+    std::cout << "Moving to scene: " << id << std::endl;
+
     auto it = scenes.find(id);
 
     if (it != scenes.end())

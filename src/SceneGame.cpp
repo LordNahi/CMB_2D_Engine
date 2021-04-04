@@ -3,16 +3,23 @@
 #include "Components/KeyboardMovement.hpp"
 #include "Engine/ECS/Object.hpp"
 
-SceneGame::SceneGame(WorkingDirectory& workingDir) : workingDir(workingDir) {}
+SceneGame::SceneGame(
+    WorkingDirectory& workingDir,
+    ResourceAllocator<sf::Texture>& textureAllocator)
+    :
+    workingDir(workingDir),
+    textureAllocator(textureAllocator)
+    {}
 
 void SceneGame::OnCreate()
 {
     player = std::make_shared<Object>();
 
     auto movement = player->AddComponent<KeyboardMovement>();
-    auto sprite   = player->AddComponent<Sprite>();
-
     movement->SetInput(&input);
+
+    auto sprite = player->AddComponent<Sprite>();
+    sprite->SetTextureAllocator(&textureAllocator);
     sprite->Load(workingDir.Get() + "default.png");
 }
 
