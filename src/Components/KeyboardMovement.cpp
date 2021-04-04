@@ -41,7 +41,6 @@ void KeyboardMovement::Update(float deltaTime)
         movement.y = moveSpeed;
     }
 
-    // Try movement *= deltaTime? ...
     movement *= deltaTime;
 
     owner->transform->AddPosition(movement);
