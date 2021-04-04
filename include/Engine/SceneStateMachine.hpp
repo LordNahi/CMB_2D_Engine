@@ -1,6 +1,7 @@
 #ifndef SceneStateMachine_hpp
 #define SceneStateMachine_hpp
 
+#include <unordered_map>
 #include <memory>
 
 #include "Engine/Scene.hpp"
