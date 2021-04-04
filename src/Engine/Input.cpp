@@ -4,6 +4,9 @@ void Input::Update()
 {
     lastFrameKeys.SetMask(thisFrameKeys);
 
+    // This method of setting bits and controlling input will make
+    // adding new input methods much easier, ie joystick, gamepad ...
+
     thisFrameKeys.SetBit((int)Key::Left,
         (sf::Keyboard::isKeyPressed(sf::Keyboard::Left)) ||
         (sf::Keyboard::isKeyPressed(sf::Keyboard::A)));

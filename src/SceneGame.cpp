@@ -1,26 +1,22 @@
 #include "SceneGame.hpp"
 #include "Components/Sprite.hpp"
+#include "Components/KeyboardMovement.hpp"
 #include "Engine/ECS/Object.hpp"
 
-SceneGame::SceneGame(WorkingDirectory& workingDir) : workingDir(workingDir)
-{
-
-}
+SceneGame::SceneGame(WorkingDirectory& workingDir) : workingDir(workingDir) {}
 
 void SceneGame::OnCreate()
 {
     player = std::make_shared<Object>();
 
-    // Here we add the sprite component to the player object ...
-    // This will make our entity drawable/visible ...
-    auto sprite = player->AddComponent<Sprite>();
+    auto movement = player->AddComponent<KeyboardMovement>();
+    auto sprite   = player->AddComponent<Sprite>();
+
+    movement->SetInput(&input);
     sprite->Load(workingDir.Get() + "default.png");
 }
 
-void SceneGame::OnDestroy()
-{
-
-}
+void SceneGame::OnDestroy() {}
 
 void SceneGame::ProcessInput()
 {
@@ -29,7 +25,12 @@ void SceneGame::ProcessInput()
 
 void SceneGame::Update(float deltaTime)
 {
+    player->Update(deltaTime);
+}
 
+void SceneGame::LateUpdate(float deltaTime)
+{
+    player->LateUpdate(deltaTime);
 }
 
 void SceneGame::Draw(Window& window)

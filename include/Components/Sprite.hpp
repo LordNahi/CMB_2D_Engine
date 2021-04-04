@@ -14,6 +14,9 @@ class Sprite : public Component
         // Override Component's Draw method ...
         void Draw(Window& window) override;
 
+        // We'll use this to update out sprite based on our position ...
+        void LateUpdate(float deltaTime) override;
+
     private:
         sf::Texture texture;
         sf::Sprite sprite;

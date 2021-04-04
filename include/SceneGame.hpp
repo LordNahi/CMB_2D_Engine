@@ -18,6 +18,7 @@ class SceneGame : public Scene
 
         void ProcessInput() override;
         void Update(float deltaTime) override;
+        void LateUpdate(float deltaTime) override;
         void Draw(Window& window) override;
 
     private:

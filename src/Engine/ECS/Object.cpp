@@ -1,5 +1,11 @@
 #include "Engine/ECS/Object.hpp"
 
+Object::Object()
+{
+    // Add our required components here ...
+    transform = AddComponent<Transform>();
+}
+
 void Object::Awake()
 {
     for (int i = components.size() - 1; i >= 0; i --)
