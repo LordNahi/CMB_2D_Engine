@@ -18,9 +18,15 @@
             "problemMatcher": []
         },
         {
-            "label": "Run",
+            "label": "Run (Linux)",
             "type": "shell",
             "command": "cd build/bin && ./main_engine",
+            "problemMatcher": []
+        },
+        {
+            "label": "Run (Win32)",
+            "type": "shell",
+            "command": "cd build/Debug && ./main_engine.exe",
             "problemMatcher": []
         }
     ]

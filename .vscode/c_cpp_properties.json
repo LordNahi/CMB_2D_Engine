@@ -4,22 +4,20 @@
             "name": "Win32",
             "includePath": [
                 "${workspaceFolder}\\include",
-                "${workspaceFolder}\\CMB\\include",
-                "${workspaceFolder}\\CMB\\ECS\\include",
-                "D:\\SFML-2.5.1\\include"
+                "C:\\Users\\natha\\.conan\\data\\sfml\\2.5.1\\bincrafters\\stable\\package\\7fb22053704eee59cfda675d9b91bdb52a86d20c\\include"
             ],
             "defines": [
                 "_DEBUG",
                 "UNICODE",
                 "_UNICODE"
             ],
-            "compilerPath": "D:\\msys64\\mingw64\\bin\\gcc.exe",
+            "compilerPath": "C:\\Program Files\\mingw-w64\\x86_64-8.1.0-posix-seh-rt_v6-rev0\\mingw64\\bin\\gcc.exe",
             "cStandard": "gnu17",
             "cppStandard": "gnu++17",
             "intelliSenseMode": "gcc-x64"
         },
         {
-            "name": "Ubuntu",
+            "name": "Linux",
             "includePath": [
                 "${workspaceFolder}/include",
                 "${workspaceFolder}/include/Engine",
@@ -32,7 +30,8 @@
                 "_DEBUG",
                 "UNICODE",
                 "_UNICODE"
-            ]
+            ],
+            "intelliSenseMode": "gcc-x64"
         }
     ],
     "version": 4
