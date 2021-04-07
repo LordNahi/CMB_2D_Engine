@@ -12,7 +12,7 @@ SceneSplash::SceneSplash(
     window(window),
     switchToState(0),
     currentSeconds(0.f),
-    showForSeconds(3.f)
+    showForSeconds(5.f)
     {}
 
 void SceneSplash::OnCreate()
@@ -26,7 +26,6 @@ void SceneSplash::OnCreate()
         sf::FloatRect spriteSize = splashSprite.getLocalBounds();
 
         splashSprite.setOrigin(spriteSize.width * 0.5f, spriteSize.height * 0.5f);
-        splashSprite.setScale(2.f, 2.f);
         
         sf::Vector2u windowCenter = window.GetCenter();
 
