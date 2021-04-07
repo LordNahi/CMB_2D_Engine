@@ -4,6 +4,7 @@
 #include <map>
 #include <memory>
 #include <string>
+#include <iostream>
 
 template <typename T>
 class ResourceAllocator
@@ -26,12 +27,15 @@ class ResourceAllocator
             std::shared_ptr<T> resource = std::make_shared<T>();
             if (!resource->loadFromFile(filePath))
             {
+                std::cout << "Failed to load resource: " << filePath << std::endl;
                 return -1;
             }
 
             resources.insert(
                 std::make_pair(filePath, std::make_pair(currentId, resource))
             );
+
+            std::cout << "Successfully loaded resource: " << filePath << std::endl;
 
             return currentId++;
         }
@@ -67,7 +71,7 @@ class ResourceAllocator
         }
 
     private:
-        int currentId;
+        int currentId = 0;
         std::map<std::string, std::pair<int, std::shared_ptr<T>>> resources;
 };
 
