@@ -28,7 +28,7 @@ class SceneStateMachine
 
         std::shared_ptr<Scene> curScene;
 
-        unsigned int insertedSceneID;
+        unsigned int insertedSceneID = 0;
 };
 
 #endif /* SceneStateMachine_hpp */
