@@ -13,6 +13,8 @@ SceneGame::SceneGame(
 
 void SceneGame::OnCreate()
 {
+    auto texId = textureAllocator.Add(workingDir.Get() + "default.png");
+
     player = std::make_shared<Object>();
 
     auto movement = player->AddComponent<KeyboardMovement>();
@@ -20,7 +22,7 @@ void SceneGame::OnCreate()
 
     auto sprite = player->AddComponent<Sprite>();
     sprite->SetTextureAllocator(&textureAllocator);
-    sprite->Load(workingDir.Get() + "default.png");
+    sprite->Load(texId);
 }
 
 void SceneGame::OnDestroy() {}
