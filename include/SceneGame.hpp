@@ -3,6 +3,7 @@
 
 #include <memory>
 
+#include "Engine/ObjectCollection.hpp"
 #include "Engine/ResourceAllocator.hpp"
 #include "Engine/Scene.hpp"
 #include "Engine/Input.hpp"
@@ -25,11 +26,10 @@ class SceneGame : public Scene
         void Draw(Window& window) override;
 
     private:
+        Input input;
+        ObjectCollection objects;
         WorkingDirectory& workingDir;
         ResourceAllocator<sf::Texture>& textureAllocator;
-        Input input;
-
-        std::shared_ptr<Object> player;
 };
 
 #endif /* SceneGame_hpp */

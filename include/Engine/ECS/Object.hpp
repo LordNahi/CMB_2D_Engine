@@ -23,6 +23,8 @@ class Object
         void Update(float deltaTime);
         void LateUpdate(float deltaTime);
         void Draw (Window& window);
+        void Remove();
+        bool GetIsRemoving();
 
         template <typename T> std::shared_ptr<T> AddComponent()
         {
@@ -82,6 +84,7 @@ class Object
 
     private:
         std::vector<std::shared_ptr<Component>> components;
+        bool isRemoving = false;
 };
 
 #endif /* Object_hpp */

@@ -13,16 +13,16 @@ SceneGame::SceneGame(
 
 void SceneGame::OnCreate()
 {
-    auto texId = textureAllocator.Add(workingDir.Get() + "default.png");
-
-    player = std::make_shared<Object>();
+    auto player = std::make_shared<Object>();
 
     auto movement = player->AddComponent<KeyboardMovement>();
     movement->SetInput(&input);
 
     auto sprite = player->AddComponent<Sprite>();
     sprite->SetTextureAllocator(&textureAllocator);
-    sprite->Load(texId);
+    sprite->Load(workingDir.Get() + "default.png");
+
+    objects.Add(player);
 }
 
 void SceneGame::OnDestroy() {}
@@ -34,15 +34,18 @@ void SceneGame::ProcessInput()
 
 void SceneGame::Update(float deltaTime)
 {
-    player->Update(deltaTime);
+    objects.ProcessRemovals();
+    objects.ProcessNewObjects();
+
+    objects.Update(deltaTime);
 }
 
 void SceneGame::LateUpdate(float deltaTime)
 {
-    player->LateUpdate(deltaTime);
+    objects.LateUpdate(deltaTime);
 }
 
 void SceneGame::Draw(Window& window)
 {
-    player->Draw(window);
+    objects.Draw(window);
 }

@@ -45,3 +45,13 @@ void Object::Draw(Window& window)
         components[i]->Draw(window);
     }
 }
+
+void Object::Remove()
+{
+    isRemoving = true;
+}
+
+bool Object::GetIsRemoving()
+{
+    return isRemoving;
+}
