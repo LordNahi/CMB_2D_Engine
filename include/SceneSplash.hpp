@@ -3,9 +3,9 @@
 
 #include <SFML/Graphics.hpp>
 
-#include "Engine/ResourceAllocator.hpp"
-#include "Engine/SceneStateMachine.hpp"
-#include "Engine/WorkingDirectory.hpp"
+#include "ResourceAllocator.hpp"
+#include "SceneStateMachine.hpp"
+#include "WorkingDirectory.hpp"
 
 class SceneSplash : public Scene
 {

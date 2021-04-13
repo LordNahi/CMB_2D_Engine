@@ -1,7 +1,7 @@
 #include "SceneGame.hpp"
-#include "Components/Sprite.hpp"
-#include "Components/KeyboardMovement.hpp"
-#include "Engine/ECS/Object.hpp"
+#include "C_Sprite.hpp"
+#include "C_KeyboardMovement.hpp"
+#include "Object.hpp"
 
 SceneGame::SceneGame(
     WorkingDirectory& workingDir,

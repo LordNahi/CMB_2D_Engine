@@ -1,4 +1,4 @@
-#include "Engine/ECS/Object.hpp"
+#include "Object.hpp"
 
 Object::Object()
 {

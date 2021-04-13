@@ -4,7 +4,7 @@
 #include <memory>
 #include <vector>
 
-#include "Engine/ECS/Object.hpp"
+#include "Object.hpp"
 
 class ObjectCollection
 {

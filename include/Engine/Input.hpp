@@ -3,7 +3,7 @@
 
 #include <SFML/Graphics.hpp>
 
-#include "Engine/Bitmask.hpp"
+#include "Bitmask.hpp"
 
 class Input
 {

@@ -4,9 +4,9 @@
 #include <memory>
 #include <vector>
 
-#include "Engine/ECS/Component.hpp"
-#include "Engine/ECS/Transform.hpp"
-#include "Engine/Window.hpp"
+#include "Component.hpp"
+#include "C_Transform.hpp"
+#include "Window.hpp"
 
 
 class Object

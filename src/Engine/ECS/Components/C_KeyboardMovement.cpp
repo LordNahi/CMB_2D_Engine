@@ -1,5 +1,5 @@
-#include "Components/KeyboardMovement.hpp"
-#include "Engine/ECS/Object.hpp"
+#include "C_KeyboardMovement.hpp"
+#include "Object.hpp"
 
 KeyboardMovement::KeyboardMovement(Object* owner) : Component(owner), moveSpeed(100) {}
 

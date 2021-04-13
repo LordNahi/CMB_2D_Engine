@@ -1,5 +1,5 @@
-#include "Components/Sprite.hpp"
-#include "Engine/ECS/Object.hpp"
+#include "C_Sprite.hpp"
+#include "Object.hpp"
 
 #include <iostream>
 

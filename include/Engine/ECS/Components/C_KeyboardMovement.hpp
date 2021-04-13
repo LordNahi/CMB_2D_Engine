@@ -1,8 +1,8 @@
 #ifndef KeyboardMovement_hpp
 #define KeyboardMovement_hpp
 
-#include "Engine/ECS/Component.hpp"
-#include "Engine/Input.hpp"
+#include "Component.hpp"
+#include "Input.hpp"
 
 class KeyboardMovement : public Component
 {

@@ -1,4 +1,4 @@
-#include "Engine/Window.hpp"
+#include "Window.hpp"
 
 Window::Window(const std::string& windowName)
     : window(sf::VideoMode(640, 480), windowName, sf::Style::Close)

@@ -1,4 +1,4 @@
-#include "Engine/Bitmask.hpp"
+#include "Bitmask.hpp"
 
 Bitmask::Bitmask() : bits(0) { }
 

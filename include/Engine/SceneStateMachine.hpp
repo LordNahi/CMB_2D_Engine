@@ -4,8 +4,8 @@
 #include <unordered_map>
 #include <memory>
 
-#include "Engine/Scene.hpp"
-#include "Engine/Window.hpp"
+#include "Scene.hpp"
+#include "Window.hpp"
 
 class SceneStateMachine
 {

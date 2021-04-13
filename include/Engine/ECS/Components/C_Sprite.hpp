@@ -1,8 +1,8 @@
 #ifndef Sprite_hpp
 #define Sprite_hpp
 
-#include "Engine/ECS/Component.hpp"
-#include "Engine/ResourceAllocator.hpp"
+#include "Component.hpp"
+#include "ResourceAllocator.hpp"
 
 class Sprite : public Component
 {

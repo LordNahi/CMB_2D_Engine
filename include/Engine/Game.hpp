@@ -1,11 +1,11 @@
 #ifndef Game_hpp
 #define Game_hpp
 
-#include "Engine/Window.hpp"
-#include "Engine/WorkingDirectory.hpp"
-#include "Engine/Input.hpp"
-#include "Engine/SceneStateMachine.hpp"
-#include "Engine/ResourceAllocator.hpp"
+#include "Window.hpp"
+#include "WorkingDirectory.hpp"
+#include "Input.hpp"
+#include "SceneStateMachine.hpp"
+#include "ResourceAllocator.hpp"
 
 // Game Scenes ...
 #include "SceneSplash.hpp"

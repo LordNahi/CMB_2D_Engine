@@ -3,12 +3,12 @@
 
 #include <memory>
 
-#include "Engine/ObjectCollection.hpp"
-#include "Engine/ResourceAllocator.hpp"
-#include "Engine/Scene.hpp"
-#include "Engine/Input.hpp"
-#include "Engine/WorkingDirectory.hpp"
-#include "Engine/ECS/Object.hpp"
+#include "ObjectCollection.hpp"
+#include "ResourceAllocator.hpp"
+#include "Scene.hpp"
+#include "Input.hpp"
+#include "WorkingDirectory.hpp"
+#include "Object.hpp"
 
 class SceneGame : public Scene
 {
