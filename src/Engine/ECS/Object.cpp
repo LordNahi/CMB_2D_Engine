@@ -1,9 +1,9 @@
-#include "Engine/ECS/Object.hpp"
+#include "Object.hpp"
 
 Object::Object()
 {
     // Add our required components here ...
-    transform = AddComponent<Transform>();
+    transform = AddComponent<C_Transform>();
 }
 
 void Object::Awake()

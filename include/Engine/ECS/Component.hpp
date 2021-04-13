@@ -1,7 +1,7 @@
 #ifndef Component_hpp
 #define Component_hpp
 
-#include "Engine/Window.hpp"
+#include "Window.hpp"
 
 class Object;
 

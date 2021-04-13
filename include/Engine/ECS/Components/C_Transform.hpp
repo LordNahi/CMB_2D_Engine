@@ -3,10 +3,10 @@
 
 #include "Component.hpp"
 
-class Transform : public Component
+class C_Transform : public Component
 {
     public:
-        Transform(Object* owner);
+        C_Transform(Object* owner);
 
         void SetPosition(float x, float y);
         void SetPosition(const sf::Vector2f pos);
@@ -26,4 +26,4 @@ class Transform : public Component
         sf::Vector2f position;
 };
 
-#endif /* Transform.hpp */
+#endif /* C_Transform_hpp */

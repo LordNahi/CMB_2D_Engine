@@ -37,6 +37,9 @@ target_link_libraries(
 # Compile list of user include dirs ...
 list(APPEND include_list
     include
+    include/Engine
+    include/Engine/ECS
+    include/Engine/ECS/Components
 )
 
 # Add user include list ...

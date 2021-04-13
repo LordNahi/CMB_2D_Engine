@@ -1,6 +1,6 @@
 #include <iostream>
 
-#include "Engine/SceneStateMachine.hpp"
+#include "SceneStateMachine.hpp"
 
 SceneStateMachine::SceneStateMachine() : scenes(0), curScene(0) { }
 

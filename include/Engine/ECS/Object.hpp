@@ -4,9 +4,9 @@
 #include <memory>
 #include <vector>
 
-#include "Engine/ECS/Component.hpp"
-#include "Engine/ECS/Transform.hpp"
-#include "Engine/Window.hpp"
+#include "Component.hpp"
+#include "C_Transform.hpp"
+#include "Window.hpp"
 
 
 class Object
@@ -80,7 +80,7 @@ class Object
          * and to be moveable.
          */
 
-        std::shared_ptr<Transform> transform;
+        std::shared_ptr<C_Transform> transform;
 
     private:
         std::vector<std::shared_ptr<Component>> components;

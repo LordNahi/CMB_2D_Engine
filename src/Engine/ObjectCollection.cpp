@@ -1,4 +1,4 @@
-#include "Engine/ObjectCollection.hpp"
+#include "ObjectCollection.hpp"
 
 void ObjectCollection::Add(std::shared_ptr<Object> object)
 {

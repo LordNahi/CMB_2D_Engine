@@ -1,20 +1,20 @@
-#include "Components/KeyboardMovement.hpp"
-#include "Engine/ECS/Object.hpp"
+#include "C_KeyboardMovement.hpp"
+#include "Object.hpp"
 
-KeyboardMovement::KeyboardMovement(Object* owner) : Component(owner), moveSpeed(100) {}
+C_KeyboardMovement::C_KeyboardMovement(Object* owner) : Component(owner), moveSpeed(100) {}
 
-void KeyboardMovement::SetInput(Input* input)
+void C_KeyboardMovement::SetInput(Input* input)
 {
     // Ask Dave if this using this here is necessary ...
     this->input = input;
 }
 
-void KeyboardMovement::SetMovementSpeed(int moveSpeed)
+void C_KeyboardMovement::SetMovementSpeed(int moveSpeed)
 {
     this->moveSpeed = moveSpeed;
 }
 
-void KeyboardMovement::Update(float deltaTime)
+void C_KeyboardMovement::Update(float deltaTime)
 {
     if (input == nullptr)
     {

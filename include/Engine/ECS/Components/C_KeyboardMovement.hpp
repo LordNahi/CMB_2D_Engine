@@ -1,13 +1,13 @@
 #ifndef KeyboardMovement_hpp
 #define KeyboardMovement_hpp
 
-#include "Engine/ECS/Component.hpp"
-#include "Engine/Input.hpp"
+#include "Component.hpp"
+#include "Input.hpp"
 
-class KeyboardMovement : public Component
+class C_KeyboardMovement : public Component
 {
     public:
-        KeyboardMovement(Object* owner);
+        C_KeyboardMovement(Object* owner);
 
         void SetInput(Input* input);
         void SetMovementSpeed(int moveSpeed);
@@ -19,4 +19,4 @@ class KeyboardMovement : public Component
         Input* input;
 };
 
-#endif /* KeyboardMovement_hpp */
+#endif /* C_KeyboardMovement_hpp */

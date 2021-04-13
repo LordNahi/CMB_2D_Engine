@@ -1,13 +1,13 @@
 #ifndef Sprite_hpp
 #define Sprite_hpp
 
-#include "Engine/ECS/Component.hpp"
-#include "Engine/ResourceAllocator.hpp"
+#include "Component.hpp"
+#include "ResourceAllocator.hpp"
 
-class Sprite : public Component
+class C_Sprite : public Component
 {
     public:
-        Sprite(Object* owner);
+        C_Sprite(Object* owner);
 
         // Loads a sprite from file ...
         void Load(const std::string& filePath);
@@ -26,4 +26,4 @@ class Sprite : public Component
         sf::Sprite sprite;
 };
 
-#endif /* Sprite_hpp */
+#endif /* C_Sprite */
