@@ -44,3 +44,23 @@ void C_Sprite::LateUpdate(float deltaTime)
 {
     sprite.setPosition(owner->transform->GetPosition());
 }
+
+void C_Sprite::SetScale(float scale)
+{
+    sprite.setScale(scale, scale);
+}
+
+void C_Sprite::SetScale(float x, float y)
+{
+    sprite.setScale(x, y);
+}
+
+void C_Sprite::SetTextureRect(int x, int y, int width, int height)
+{
+    sprite.setTextureRect(sf::IntRect(x, y, width, height));
+}
+
+void C_Sprite::SetTextureRect(const sf::IntRect& rect)
+{
+    sprite.setTextureRect(rect);
+}
