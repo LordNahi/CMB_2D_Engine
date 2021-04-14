@@ -14,6 +14,10 @@ class C_Sprite : public Component
         void Load(int id);
 
         void SetTextureAllocator(ResourceAllocator<sf::Texture>* allocator);
+        void SetTextureRect(int x, int y, int width, int height);
+        void SetTextureRect(const sf::IntRect& rect);
+        void SetScale(float scale);
+        void SetScale(float x, float y);
 
         // Override Component's Draw method ...
         void Draw(Window& window) override;
@@ -22,6 +26,7 @@ class C_Sprite : public Component
         void LateUpdate(float deltaTime) override;
 
     private:
+        int currentTextureID = -1;
         ResourceAllocator<sf::Texture>* allocator;
         sf::Sprite sprite;
 };

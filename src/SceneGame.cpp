@@ -1,7 +1,4 @@
 #include "SceneGame.hpp"
-#include "C_Sprite.hpp"
-#include "C_KeyboardMovement.hpp"
-#include "Object.hpp"
 
 SceneGame::SceneGame(
     WorkingDirectory& workingDir,
@@ -20,7 +17,30 @@ void SceneGame::OnCreate()
 
     auto sprite = player->AddComponent<C_Sprite>();
     sprite->SetTextureAllocator(&textureAllocator);
-    sprite->Load(workingDir.Get() + "default.png");
+    sprite->SetScale(5);
+    
+    auto animation = player->AddComponent<C_Animation>();
+
+    int vikingTextureId = textureAllocator.Add(workingDir.Get() + "viking.png");
+
+    const int frameWidth = 40;
+    const int frameHeight = 29;
+
+    std::shared_ptr<Animation> idleAnimation = std::make_shared<Animation>();
+
+    // How long we want to show the frame (200ms) ...
+    const float idleAnimFrameSeconds = 0.2f;
+
+    idleAnimation->AddFrame(vikingTextureId, 120, 0,
+                            frameWidth, frameHeight, idleAnimFrameSeconds);
+    idleAnimation->AddFrame(vikingTextureId, 160, 0,
+                            frameWidth, frameHeight, idleAnimFrameSeconds);
+    idleAnimation->AddFrame(vikingTextureId, 0, 29,
+                            frameWidth, frameHeight, idleAnimFrameSeconds);
+    idleAnimation->AddFrame(vikingTextureId, 40, 29,
+                            frameWidth, frameHeight, idleAnimFrameSeconds);
+
+    animation->AddAnimation(AnimationState::Idle, idleAnimation);
 
     objects.Add(player);
 }
