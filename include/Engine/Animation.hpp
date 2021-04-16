@@ -13,21 +13,31 @@ struct FrameData
     float displayTimeSeconds;   // How long to display the frame
 };
 
+enum class FaceDirection
+{
+    None,
+    Left,
+    Right
+};
+
 class Animation
 {
     public:
-        Animation();
+        Animation(FaceDirection direction);
 
         void AddFrame(int textureID, int x, int y, int width, int height, float frameTime);
         bool UpdateFrame(float deltaTime);
         void Reset();
+        void SetDirection(FaceDirection direction);
+        FaceDirection GetDirection() const;
         FrameData* GetCurrentFrame();
     
     private:
         int currentFrameIndex;
         float currentFrameTime;
-        std::vector<FrameData> frames;
         void IncrementFrame();
+        std::vector<FrameData> frames;
+        FaceDirection faceDirection;
 };
 
 #endif /* Animation_hpp */

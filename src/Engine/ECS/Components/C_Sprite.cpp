@@ -12,8 +12,6 @@ void C_Sprite::SetTextureAllocator(ResourceAllocator<sf::Texture>* allocator)
 
 void C_Sprite::Load(int id)
 {
-    std::cout << "Loading texture asset with ID: " << id << std::endl;
-
     if (id >= 0)
     {
         std::shared_ptr<sf::Texture> texture = allocator->Get(id);

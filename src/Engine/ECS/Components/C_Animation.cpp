@@ -47,6 +47,20 @@ void C_Animation::SetAnimationState(AnimationState state)
         return;
     }
 
+    switch (state)
+    {
+    case AnimationState::Walk:
+        std::cout << "Setting state to walk..." << std::endl;
+        break;
+    
+    case AnimationState::Idle:
+        std::cout << "Setting state to Idle..." << std::endl;
+        break;
+
+    default:
+        break;
+    }
+
     auto animation = animations.find(state);
     if (animation != animations.end())
     {
@@ -54,6 +68,14 @@ void C_Animation::SetAnimationState(AnimationState state)
         currentAnimation.second = animation->second;
 
         currentAnimation.second->Reset();
+    }
+}
+
+void C_Animation::SetAnimationDirection(FaceDirection direction)
+{
+    if (currentAnimation.first != AnimationState::None)
+    {
+        currentAnimation.second->SetDirection(direction);
     }
 }
 

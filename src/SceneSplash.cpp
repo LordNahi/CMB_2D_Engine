@@ -12,7 +12,7 @@ SceneSplash::SceneSplash(
     window(window),
     switchToState(0),
     currentSeconds(0.f),
-    showForSeconds(5.f)
+    showForSeconds(1.f)
     {}
 
 void SceneSplash::OnCreate()

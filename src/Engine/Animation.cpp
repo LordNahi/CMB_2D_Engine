@@ -1,9 +1,31 @@
 #include "Animation.hpp"
 
-Animation::Animation()
+Animation::Animation(FaceDirection direction)
 {
+    faceDirection = direction;
     currentFrameIndex = 0;
     currentFrameTime = 0.f;
+}
+
+void Animation::SetDirection(FaceDirection direction)
+{
+    if (direction != faceDirection)
+    {
+        faceDirection = direction;
+
+        for (auto& frame : frames)
+        {
+            // This will flip the frame assuming a 0,0 origin
+            // point ...
+            frame.x += frame.width; // Move the frame forward by a frames width, then ...
+            frame.width *= -1;      // Multiply the frame width by -1, flipping it ...
+        }
+    }
+}
+
+FaceDirection Animation::GetDirection() const
+{
+    return faceDirection;
 }
 
 void Animation::AddFrame(int textureID, int x, int y, int width, int height, float frameTime)

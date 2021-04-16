@@ -26,9 +26,10 @@ void SceneGame::OnCreate()
     const int frameWidth = 40;
     const int frameHeight = 29;
 
-    std::shared_ptr<Animation> idleAnimation = std::make_shared<Animation>();
+    std::shared_ptr<Animation> idleAnimation = std::make_shared<Animation>(FaceDirection::Right);
+    std::shared_ptr<Animation> walkAnimation = std::make_shared<Animation>(FaceDirection::Right);
 
-    // How long we want to show the frame (200ms) ...
+    // Idle Animation ...
     const float idleAnimFrameSeconds = 0.2f;
 
     idleAnimation->AddFrame(vikingTextureId, 120, 0,
@@ -40,7 +41,24 @@ void SceneGame::OnCreate()
     idleAnimation->AddFrame(vikingTextureId, 40, 29,
                             frameWidth, frameHeight, idleAnimFrameSeconds);
 
+    // Walk Animation ...
+    const float walkAnimFrameSeconds = 0.15f;
+
+    walkAnimation->AddFrame(vikingTextureId, 120, 58,
+                            frameWidth, frameHeight, idleAnimFrameSeconds);
+    walkAnimation->AddFrame(vikingTextureId, 160, 58,
+                            frameWidth, frameHeight, idleAnimFrameSeconds);
+    walkAnimation->AddFrame(vikingTextureId, 0, 87,
+                            frameWidth, frameHeight, idleAnimFrameSeconds);
+    walkAnimation->AddFrame(vikingTextureId, 40, 87,
+                            frameWidth, frameHeight, idleAnimFrameSeconds);
+    walkAnimation->AddFrame(vikingTextureId, 80, 87,
+                            frameWidth, frameHeight, idleAnimFrameSeconds);
+    walkAnimation->AddFrame(vikingTextureId, 120, 87,
+                            frameWidth, frameHeight, idleAnimFrameSeconds);
+
     animation->AddAnimation(AnimationState::Idle, idleAnimation);
+    animation->AddAnimation(AnimationState::Walk, walkAnimation);
 
     objects.Add(player);
 }
