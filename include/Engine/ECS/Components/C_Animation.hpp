@@ -23,6 +23,7 @@ class C_Animation : public Component
         void AddAnimation(AnimationState state, std::shared_ptr<Animation> animation);
         void SetAnimationState(AnimationState state);
         void SetAnimationDirection(FaceDirection direction);
+        void RefreshAnimationSprite();
         const AnimationState& GetAnimationState() const;
 
     private:

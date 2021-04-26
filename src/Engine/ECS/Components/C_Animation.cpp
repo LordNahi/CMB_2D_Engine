@@ -13,18 +13,11 @@ void C_Animation::Awake()
 
 void C_Animation::Update(float deltaTime)
 {
-    if (currentAnimation.first != AnimationState::None)
+    bool newFrame = currentAnimation.second->UpdateFrame(deltaTime);
+
+    if (newFrame)
     {
-        bool newFrame = currentAnimation.second->UpdateFrame(deltaTime);
-
-        if (newFrame)
-        {
-            // Is this the closest I can get to `FrameData&`? ...
-            auto data = *currentAnimation.second->GetCurrentFrame();
-
-            sprite->Load(data.id);
-            sprite->SetTextureRect(data.x, data.y, data.width, data.height);
-        }
+        RefreshAnimationSprite();
     }
 }
 
@@ -40,6 +33,8 @@ void C_Animation::AddAnimation(AnimationState state, std::shared_ptr<Animation> 
 
 void C_Animation::SetAnimationState(AnimationState state)
 {
+    RefreshAnimationSprite();
+
     // We only set an animation if it is not already
     // our current animation ...
     if (currentAnimation.first == state)
@@ -84,4 +79,16 @@ const AnimationState& C_Animation::GetAnimationState() const
     // Returns our current animation state. We can use this
     // to compare the objects current state to a desired state.
     return currentAnimation.first;
+}
+
+void C_Animation::RefreshAnimationSprite()
+{
+    if (currentAnimation.first != AnimationState::None)
+    {
+        // Is this the closest I can get to `FrameData&`? ...
+        auto data = *currentAnimation.second->GetCurrentFrame();
+
+        sprite->Load(data.id);
+        sprite->SetTextureRect(data.x, data.y, data.width, data.height);
+    }
 }
