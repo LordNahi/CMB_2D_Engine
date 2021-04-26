@@ -42,20 +42,6 @@ void C_Animation::SetAnimationState(AnimationState state)
         return;
     }
 
-    switch (state)
-    {
-    case AnimationState::Walk:
-        std::cout << "Setting state to walk..." << std::endl;
-        break;
-    
-    case AnimationState::Idle:
-        std::cout << "Setting state to Idle..." << std::endl;
-        break;
-
-    default:
-        break;
-    }
-
     auto animation = animations.find(state);
     if (animation != animations.end())
     {
