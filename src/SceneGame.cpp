@@ -18,6 +18,7 @@ void SceneGame::OnCreate()
     auto sprite = player->AddComponent<C_Sprite>();
     sprite->SetTextureAllocator(&textureAllocator);
     sprite->SetScale(5);
+    sprite->SetOrigin(.4f);
     
     auto animation = player->AddComponent<C_Animation>();
 
