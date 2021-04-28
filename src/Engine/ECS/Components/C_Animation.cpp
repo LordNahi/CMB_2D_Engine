@@ -52,14 +52,6 @@ void C_Animation::SetAnimationState(AnimationState state)
     }
 }
 
-void C_Animation::SetAnimationDirection(FaceDirection direction)
-{
-    if (currentAnimation.first != AnimationState::None)
-    {
-        currentAnimation.second->SetDirection(direction);
-    }
-}
-
 const AnimationState& C_Animation::GetAnimationState() const
 {
     // Returns our current animation state. We can use this
