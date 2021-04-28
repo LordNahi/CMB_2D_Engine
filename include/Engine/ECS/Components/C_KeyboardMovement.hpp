@@ -5,6 +5,7 @@
 #include "Input.hpp"
 
 #include "C_Animation.hpp"
+#include "C_Sprite.hpp"
 
 class C_KeyboardMovement : public Component
 {
@@ -20,7 +21,9 @@ class C_KeyboardMovement : public Component
     private:
         int moveSpeed;
         Input* input;
+
         std::shared_ptr<C_Animation> c_animation;
+        std::shared_ptr<C_Sprite> c_sprite;
 };
 
 #endif /* C_KeyboardMovement_hpp */
