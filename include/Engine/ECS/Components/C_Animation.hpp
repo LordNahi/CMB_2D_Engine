@@ -5,6 +5,18 @@
 #include "Animation.hpp"
 #include "C_Sprite.hpp"
 
+/**
+ * TODO: For this component to be usable accross any sprite
+ * there cannot be a generic state enum, this will likely
+ * end up being being removed and functions like `AddAnimation`
+ * will just take a string or int instead and leave it to the
+ * user to decide how to manage their animation state ...
+ * 
+ * eg.
+ * 
+ * AddAnimation("somekey", animation) or
+ * AddAnimation(0, animation)
+ */
 enum class AnimationState
 {
     None,

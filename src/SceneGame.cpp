@@ -27,8 +27,8 @@ void SceneGame::OnCreate()
     const int frameWidth = 40;
     const int frameHeight = 29;
 
-    std::shared_ptr<Animation> idleAnimation = std::make_shared<Animation>(FaceDirection::Right);
-    std::shared_ptr<Animation> walkAnimation = std::make_shared<Animation>(FaceDirection::Right);
+    std::shared_ptr<Animation> idleAnimation = std::make_shared<Animation>();
+    std::shared_ptr<Animation> walkAnimation = std::make_shared<Animation>();
 
     // Idle Animation ...
     const float idleAnimFrameSeconds = 0.2f;
