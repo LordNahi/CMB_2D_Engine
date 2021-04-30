@@ -19,7 +19,7 @@ class ResourceAllocator
             }
 
             /**
-             * NOTE: We're makign the assumption any resource we
+             * NOTE: We're making the assumption any resource we
              * try to load will implement `loadFromFile`, SFML
              * resources do so we won't need to worry about this
              * for the most part ...
