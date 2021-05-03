@@ -2,10 +2,11 @@
 #define Animation_hpp
 
 #include <vector>
+#include <string>
 
 struct FrameData
 {
-    int id;                     // Texture id (retrieved from our texture allocator)
+    std::string key;                     // Texture id (retrieved from our texture allocator)
     int x;                      // x position of sprite in the texture
     int y;                      // y position of sprite in the texture
     int width;                  // Width of sprite
@@ -18,7 +19,7 @@ class Animation
     public:
         Animation();
 
-        void AddFrame(int textureID, int x, int y, int width, int height, float frameTime);
+        void AddFrame(std::string key, int x, int y, int width, int height, float frameTime);
         bool UpdateFrame(float deltaTime);
         void Reset();
         FrameData* GetCurrentFrame();

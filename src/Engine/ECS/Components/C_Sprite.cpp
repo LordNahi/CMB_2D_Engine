@@ -1,8 +1,6 @@
 #include "C_Sprite.hpp"
 #include "Object.hpp"
 
-#include <iostream>
-
 C_Sprite::C_Sprite(Object* owner) : Component(owner) { }
 
 void C_Sprite::SetTextureAllocator(ResourceAllocator<sf::Texture>* allocator)
@@ -10,24 +8,13 @@ void C_Sprite::SetTextureAllocator(ResourceAllocator<sf::Texture>* allocator)
     this->allocator = allocator;
 }
 
-void C_Sprite::Load(int id)
-{
-    if (id >= 0)
-    {
-        std::shared_ptr<sf::Texture> texture = allocator->Get(id);
-        sprite.setTexture(*texture);
-    }
-}
-
-void C_Sprite::Load(const std::string& filePath)
+void C_Sprite::Load(const std::string& key)
 {
     if (allocator)
     {
-        int textureID = allocator->Add(filePath);
-
-        if (textureID >= 0)
+        if (allocator->Has(key))
         {
-            std::shared_ptr<sf::Texture> texture = allocator->Get(textureID);
+            std::shared_ptr<sf::Texture> texture = allocator->Get(key);
             sprite.setTexture(*texture);
         }
     }

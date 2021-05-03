@@ -10,12 +10,12 @@ template <typename T>
 class ResourceAllocator
 {
     public:
-        int Add(const std::string& filePath)
+        bool Add(std::string key, const std::string& filePath)
         {
-            auto it = resources.find(filePath);
+            auto it = resources.find(key);
             if (it != resources.end())
             {
-                return it->second.first;
+                std::cout << "Resource already exists: " << filePath << std::endl;
             }
 
             /**
@@ -28,19 +28,18 @@ class ResourceAllocator
             if (!resource->loadFromFile(filePath))
             {
                 std::cout << "Failed to load resource: " << filePath << std::endl;
-                return -1;
+                return false;
             }
 
             resources.insert(
-                std::make_pair(filePath, std::make_pair(currentId, resource))
+                std::make_pair(key, resource)
             );
 
             std::cout << "Successfully loaded resource: " << filePath << std::endl;
-
-            return currentId++;
+            return true;
         }
 
-        void Remove(int id)
+        void Remove(std::string key)
         {
             for (auto it = resources.begin(); it != resources.end(); ++it)
             {
@@ -51,28 +50,27 @@ class ResourceAllocator
             }
         }
 
-        std::shared_ptr<T> Get(int id)
+        std::shared_ptr<T> Get(std::string key)
         {
             for (auto it = resources.begin(); it != resources.end(); ++it)
             {
-                if (it->second.first == id)
+                if (it->first == key)
                 {
                     // Return the resource ...
-                    return it->second.second;
+                    return it->second;
                 }
             }
 
             return nullptr;
         }
 
-        bool Has(int id)
+        bool Has(std::string key)
         {
-            return (Get(id) != nullptr);
+            return (Get(key) != nullptr);
         }
 
     private:
-        int currentId = 0;
-        std::map<std::string, std::pair<int, std::shared_ptr<T>>> resources;
+        std::map<std::string, std::shared_ptr<T>> resources;
 };
 
 #endif /* ResourceAllocator_hpp */

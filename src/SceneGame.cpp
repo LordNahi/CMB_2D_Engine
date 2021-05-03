@@ -22,10 +22,11 @@ void SceneGame::OnCreate()
     
     auto animation = player->AddComponent<C_Animation>();
 
-    int vikingTextureId = textureAllocator.Add(workingDir.Get() + "viking.png");
+    textureAllocator.Add("viking", workingDir.Get() + "viking.png");
 
     const int frameWidth = 40;
     const int frameHeight = 29;
+    const std::string textureKey = "viking";
 
     std::shared_ptr<Animation> idleAnimation = std::make_shared<Animation>();
     std::shared_ptr<Animation> walkAnimation = std::make_shared<Animation>();
@@ -33,29 +34,29 @@ void SceneGame::OnCreate()
     // Idle Animation ...
     const float idleAnimFrameSeconds = 0.2f;
 
-    idleAnimation->AddFrame(vikingTextureId, 120, 0,
+    idleAnimation->AddFrame(textureKey, 120, 0,
                             frameWidth, frameHeight, idleAnimFrameSeconds);
-    idleAnimation->AddFrame(vikingTextureId, 160, 0,
+    idleAnimation->AddFrame(textureKey, 160, 0,
                             frameWidth, frameHeight, idleAnimFrameSeconds);
-    idleAnimation->AddFrame(vikingTextureId, 0, 29,
+    idleAnimation->AddFrame(textureKey, 0, 29,
                             frameWidth, frameHeight, idleAnimFrameSeconds);
-    idleAnimation->AddFrame(vikingTextureId, 40, 29,
+    idleAnimation->AddFrame(textureKey, 40, 29,
                             frameWidth, frameHeight, idleAnimFrameSeconds);
 
     // Walk Animation ...
     const float walkAnimFrameSeconds = 0.15f;
 
-    walkAnimation->AddFrame(vikingTextureId, 120, 58,
+    walkAnimation->AddFrame(textureKey, 120, 58,
                             frameWidth, frameHeight, idleAnimFrameSeconds);
-    walkAnimation->AddFrame(vikingTextureId, 160, 58,
+    walkAnimation->AddFrame(textureKey, 160, 58,
                             frameWidth, frameHeight, idleAnimFrameSeconds);
-    walkAnimation->AddFrame(vikingTextureId, 0, 87,
+    walkAnimation->AddFrame(textureKey, 0, 87,
                             frameWidth, frameHeight, idleAnimFrameSeconds);
-    walkAnimation->AddFrame(vikingTextureId, 40, 87,
+    walkAnimation->AddFrame(textureKey, 40, 87,
                             frameWidth, frameHeight, idleAnimFrameSeconds);
-    walkAnimation->AddFrame(vikingTextureId, 80, 87,
+    walkAnimation->AddFrame(textureKey, 80, 87,
                             frameWidth, frameHeight, idleAnimFrameSeconds);
-    walkAnimation->AddFrame(vikingTextureId, 120, 87,
+    walkAnimation->AddFrame(textureKey, 120, 87,
                             frameWidth, frameHeight, idleAnimFrameSeconds);
 
     animation->AddAnimation(AnimationState::Idle, idleAnimation);

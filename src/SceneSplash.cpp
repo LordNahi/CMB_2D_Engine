@@ -17,11 +17,12 @@ SceneSplash::SceneSplash(
 
 void SceneSplash::OnCreate()
 {
-    int textureID = textureAllocator.Add(workingDir.Get() + "splash.png");
 
-    if (textureID >= 0)
+    auto didLoad = textureAllocator.Add("splash", workingDir.Get() + "splash.png");
+
+    if (didLoad)
     {
-        splashSprite.setTexture(*textureAllocator.Get(textureID));
+        splashSprite.setTexture(*textureAllocator.Get("splash"));
 
         sf::FloatRect spriteSize = splashSprite.getLocalBounds();
 

@@ -66,7 +66,7 @@ void C_Animation::RefreshAnimationSprite()
         // Is this the closest I can get to `FrameData&`? ...
         auto data = *currentAnimation.second->GetCurrentFrame();
 
-        sprite->Load(data.id);
+        sprite->Load(data.key);
         sprite->SetTextureRect(data.x, data.y, data.width, data.height);
     }
 }

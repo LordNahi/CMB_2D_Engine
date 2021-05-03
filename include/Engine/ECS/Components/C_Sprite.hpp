@@ -4,14 +4,16 @@
 #include "Component.hpp"
 #include "ResourceAllocator.hpp"
 
+#include <string>
+#include <iostream>
+
 class C_Sprite : public Component
 {
     public:
         C_Sprite(Object* owner);
 
         // Loads a sprite from file ...
-        void Load(const std::string& filePath);
-        void Load(int id);
+        void Load(const std::string& key);
         void FlipX();
         void FlipY();
         void SetTextureAllocator(ResourceAllocator<sf::Texture>* allocator);

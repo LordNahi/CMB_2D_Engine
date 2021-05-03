@@ -6,11 +6,11 @@ Animation::Animation()
     currentFrameTime = 0.f;
 }
 
-void Animation::AddFrame(int textureID, int x, int y, int width, int height, float frameTime)
+void Animation::AddFrame(std::string key, int x, int y, int width, int height, float frameTime)
 {
     FrameData data;
 
-    data.id = textureID;
+    data.key = key;
     data.x = x;
     data.y = y;
     data.width = width;
