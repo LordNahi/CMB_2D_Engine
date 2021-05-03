@@ -28,26 +28,21 @@ class Object
 
         template <typename T> std::shared_ptr<T> AddComponent()
         {
-            // This ensures that we only try to add a class that derives
-            // from Component. This is tested at compile time.
-            static_assert(std::is_base_of<Component, T>::value, "T must derive from Component");
+            auto component = GetComponent<T>();
 
-            // Check we don't already have this component ...
-            for (auto& component : components)
+            if (component)
             {
-                // Currently prevent the same component being added twice ...
-                if (std::dynamic_pointer_cast<T>(component))
-                {
-                    return std::dynamic_pointer_cast<T>(component);
-                }
+                return component;
             }
+            else
+            {
+                // The object doesn't have this component so we create it and
+                // add it to out components list ...
+                std::shared_ptr<T> newComponent = std::make_shared<T>(this);
+                components.push_back(newComponent);
 
-            // The object does nothave this component so we create it and
-            // add it to out components list ...
-            std::shared_ptr<T> newComponent = std::make_shared<T>(this);
-            components.push_back(newComponent);
-
-            return newComponent;
+                return newComponent;
+            }
         }
 
         template <typename T> std::shared_ptr<T> GetComponent()
@@ -70,14 +65,14 @@ class Object
          * Required Components ...
          * 
          * NOTE: Typically in an ECS, the Entity class serves only as
-         * an ID and a place to store/run components. The tutorial
-         * I was reading while buildint this made a point to say that
-         * sometimes there are components that for you use case, you
-         * might want all entities to possess.
+         * an ID and a place to store/run components. An exception to
+         * this rule is to consider what components might be used
+         * commonly and adding them to your Entity base class and save
+         * the headache of having to constantly add these components.
          * 
-         * eg. we'll be making the transform components required as 
-         * we probably want most things to have an x/y coordinate,
-         * and to be moveable.
+         * eg. we'll be making the transform component required as 
+         * we probably want most things to have an x/y coordinate
+         * and to be moveable/rotatable/scalable etc.
          */
 
         std::shared_ptr<C_Transform> transform;
