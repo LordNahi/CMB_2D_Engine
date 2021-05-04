@@ -43,7 +43,7 @@ class ResourceAllocator
         {
             for (auto it = resources.begin(); it != resources.end(); ++it)
             {
-                if (it->second.first == id)
+                if (it->first == key)
                 {
                     resources.erase(it->first);
                 }

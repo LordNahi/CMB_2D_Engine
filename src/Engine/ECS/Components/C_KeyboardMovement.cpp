@@ -1,5 +1,8 @@
 #include "C_KeyboardMovement.hpp"
 #include "Object.hpp"
+#include "Player.hpp"
+
+using namespace Data::Player;
 
 C_KeyboardMovement::C_KeyboardMovement(Object* owner) : Component(owner), moveSpeed(100) {}
 

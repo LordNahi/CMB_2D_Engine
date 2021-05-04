@@ -6,7 +6,7 @@
 
 struct FrameData
 {
-    std::string key;                     // Texture id (retrieved from our texture allocator)
+    std::string key;            // Texture key
     int x;                      // x position of sprite in the texture
     int y;                      // y position of sprite in the texture
     int width;                  // Width of sprite

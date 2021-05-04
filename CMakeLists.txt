@@ -7,7 +7,7 @@ include(cmake/StandardProjectSettings.cmake)
 
 # Link this 'library' to set the C++ standard / compile-time options requested ...
 add_library(project_options INTERFACE)
-target_compile_features(project_options INTERFACE cxx_std_17)
+target_compile_features(project_options INTERFACE cxx_std_20)
 
 # Link this 'library' to use warnings specified in CompilerWarnings.cmake ...
 add_library(project_warnings INTERFACE)
@@ -37,6 +37,7 @@ target_link_libraries(
 # Compile list of user include dirs ...
 list(APPEND include_list
     include
+    include/Data
     include/Engine
     include/Engine/ECS
     include/Engine/ECS/Components

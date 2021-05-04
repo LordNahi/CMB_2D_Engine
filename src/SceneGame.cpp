@@ -1,4 +1,7 @@
 #include "SceneGame.hpp"
+#include "Player.hpp"
+
+using namespace Data::Player;
 
 SceneGame::SceneGame(
     WorkingDirectory& workingDir,

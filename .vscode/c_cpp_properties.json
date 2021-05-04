@@ -4,6 +4,7 @@
             "name": "Win32",
             "includePath": [
                 "${workspaceFolder}\\include",
+                "${workspaceFolder}\\include\\Data",
                 "${workspaceFolder}\\include\\Engine",
                 "${workspaceFolder}\\include\\Engine\\ECS",
                 "${workspaceFolder}\\include\\Engine\\ECS\\Components",
@@ -16,7 +17,7 @@
             ],
             "compilerPath": "C:\\Program Files\\mingw-w64\\x86_64-8.1.0-posix-seh-rt_v6-rev0\\mingw64\\bin\\gcc.exe",
             "cStandard": "gnu17",
-            "cppStandard": "gnu++17",
+            "cppStandard": "gnu++20",
             "intelliSenseMode": "gcc-x64"
         },
         {
@@ -28,7 +29,7 @@
                 "~/.conan/data/sfml/2.5.1/bincrafters/stable/source/source_subfolder/include"
             ],
             "cStandard": "gnu17",
-            "cppStandard": "gnu++17",
+            "cppStandard": "gnu++20",
             "defines": [
                 "_DEBUG",
                 "UNICODE",
