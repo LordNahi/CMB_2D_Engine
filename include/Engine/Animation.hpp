@@ -4,6 +4,7 @@
 #include <vector>
 #include <string>
 
+// TODO: Initialize all your values besides string ...
 struct FrameData
 {
     std::string key;            // Texture key
