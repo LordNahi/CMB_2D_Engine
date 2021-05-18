@@ -4,11 +4,9 @@
 #include <memory>
 
 #include "ObjectCollection.hpp"
-#include "ResourceAllocator.hpp"
-#include "Scene.hpp"
+#include "GameContext.hpp"
 #include "Input.hpp"
-#include "WorkingDirectory.hpp"
-#include "Object.hpp"
+#include "Scene.hpp"
 
 #include "C_Animation.hpp"
 #include "C_Sprite.hpp"
@@ -17,9 +15,7 @@
 class SceneGame : public Scene
 {
     public:
-        SceneGame(
-            WorkingDirectory& workingDir,
-            ResourceAllocator<sf::Texture>& textureAllocator);
+        SceneGame(GameContext& game);
 
         void OnCreate() override;
         void OnDestroy() override;
@@ -30,10 +26,8 @@ class SceneGame : public Scene
         void Draw(Window& window) override;
 
     private:
-        Input input;
+        GameContext& game;
         ObjectCollection objects;
-        WorkingDirectory& workingDir;
-        ResourceAllocator<sf::Texture>& textureAllocator;
 };
 
 #endif /* SceneGame_hpp */

@@ -2,25 +2,13 @@
 #define C_Animation_hpp
 
 #include <type_traits>
+#include <vector>
 
 #include "Component.hpp"
 #include "Animation.hpp"
+#include "Object.hpp"
 #include "C_Sprite.hpp"
 
-/**
- * TODO: For this component to be usable accross any sprite
- * there cannot be a generic state enum, this will likely
- * end up being being removed and functions like `AddAnimation`
- * will just take a string or int instead and leave it to the
- * user to decide how to manage their animation state ...
- * 
- * eg.
- * 
- * AddAnimation("somekey", animation) or
- * AddAnimation(0, animation)
- */
-
-// TODO: Consider creating a concepts file ...
 template<typename T>
 concept Enumerable = std::is_enum<T>::value;
 
@@ -33,13 +21,47 @@ class C_Animation : public Component
         void Update(float deltaTime) override;
 
         template<Enumerable T>
-        void AddAnimation(T const& state, std::shared_ptr<Animation> animation)
+        bool CreateAnimation(const std::string& key, std::vector<int> frames, T state)
         {
-            // Originally checked if there was no active animation state
-            // and would play this new state if not, unsure if I want to
-            // commit to that ...
+            const auto animation = std::make_shared<Animation>();
 
+            // TODO: Why can I access private methods in `resourceManager` ...
+            if (!owner->game.resourceManager.HasSpritesheet(key))
+            {
+                std::cout << "Failed to create animation. Couldn't find key: " << key << std::endl;
+                return false;
+            }
+
+            const auto spritesheet = owner->game.resourceManager.GetSpritesheet(key);
+
+            for (auto& frame : frames)
+            {
+                if (frame > spritesheet->second.size())
+                {
+                    std::cout << "Failed to create animation. Frame index out of bounds. " << std::endl;
+                    return false;
+                }
+
+                animation->AddFrame(spritesheet->second[frame]);
+            }
+
+            std::cout << "Successfully added animation." << std::endl;
+            std::cout << "Animation has " << animation->Size() << " frames." << std::endl;
+
+            AddAnimation(state, animation);
+
+            return true;
+        }
+
+        template<Enumerable T>
+        void AddAnimation(const T& state, std::shared_ptr<Animation> animation)
+        {
             animations.insert(std::make_pair(static_cast<int>(state), animation));
+
+            if (!currentAnimation.second)
+            {
+                SetAnimationState(state);
+            }
         }
 
         template<Enumerable T>

@@ -1,6 +1,6 @@
 #include "Object.hpp"
 
-Object::Object()
+Object::Object(GameContext& game) : game(game)
 {
     // Add our required components here ...
     transform = AddComponent<C_Transform>();

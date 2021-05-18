@@ -11,4 +11,5 @@ target_sources(${CMAKE_PROJECT_NAME}
         WorkingDirectory.cpp
         SceneStateMachine.cpp
         ObjectCollection.cpp
+        ResourceManager.cpp
 )

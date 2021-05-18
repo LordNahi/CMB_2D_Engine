@@ -4,15 +4,16 @@
 #include <memory>
 #include <vector>
 
-#include "Component.hpp"
-#include "C_Transform.hpp"
 #include "Window.hpp"
+#include "Component.hpp"
+#include "GameContext.hpp"
+#include "C_Transform.hpp"
 
 
 class Object
 {
     public:
-        Object();
+        Object(GameContext& game);
         // Awake is called when object is created, used
         // to ensure required components are present ...
         void Awake();
@@ -75,6 +76,7 @@ class Object
          * and to be moveable/rotatable/scalable etc.
          */
 
+        GameContext& game;
         std::shared_ptr<C_Transform> transform;
 
     private:

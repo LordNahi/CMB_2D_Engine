@@ -4,35 +4,22 @@
 
 using namespace Data::Player;
 
-C_KeyboardMovement::C_KeyboardMovement(Object* owner) : Component(owner), moveSpeed(100) {}
+C_KeyboardMovement::C_KeyboardMovement(Object* owner) : Component(owner) {}
 
 void C_KeyboardMovement::Awake()
 {
-    c_animation = owner->GetComponent<C_Animation>();
-    c_sprite    = owner->GetComponent<C_Sprite>();
-}
-
-void C_KeyboardMovement::SetInput(Input* input)
-{
-    // Ask Dave if this using this here is necessary ...
-    this->input = input;
+    c_sprite = owner->GetComponent<C_Sprite>();
 }
 
 void C_KeyboardMovement::SetMovementSpeed(int moveSpeed)
 {
-    this->moveSpeed = moveSpeed;
+    moveSpeed = moveSpeed;
 }
 
 void C_KeyboardMovement::Update(float deltaTime)
 {
-    if (input == nullptr)
-    {
-        return;
-    }
-
     sf::Vector2f movement{0.f, 0.f};
-    
-    if (input->IsKeyPressed(Input::Key::Left))
+    if (owner->game.input.IsKeyPressed(Input::Key::Left))
     {
         movement.x = -moveSpeed;
 
@@ -41,7 +28,7 @@ void C_KeyboardMovement::Update(float deltaTime)
             c_sprite->FlipX();
         }
     }
-    else if (input->IsKeyPressed(Input::Key::Right))
+    else if (owner->game.input.IsKeyPressed(Input::Key::Right))
     {
         movement.x = moveSpeed;
 
@@ -51,21 +38,11 @@ void C_KeyboardMovement::Update(float deltaTime)
         }
     }
 
-    // Set horizontal animation direction ...
-    if (movement.x == 0.f && movement.y == 0.f)
-    {
-        c_animation->SetAnimationState(AnimationState::Idle);
-    }
-    else
-    {
-        c_animation->SetAnimationState(AnimationState::Walk);
-    }
-
-    if (input->IsKeyPressed(Input::Key::Up))
+    if (owner->game.input.IsKeyPressed(Input::Key::Up))
     {
         movement.y = -moveSpeed;
     }
-    else if (input->IsKeyPressed(Input::Key::Down))
+    else if (owner->game.input.IsKeyPressed(Input::Key::Down))
     {
         movement.y = moveSpeed;
     }

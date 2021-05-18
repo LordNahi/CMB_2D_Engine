@@ -1,34 +1,21 @@
 #include "SceneSplash.hpp"
 
-SceneSplash::SceneSplash(
-    WorkingDirectory& workingDir,
-    SceneStateMachine& sceneStateMachine,
-    ResourceAllocator<sf::Texture>& textureAllocator,
-    Window& window)
-    :
-    workingDir(workingDir),
-    sceneStateMachine(sceneStateMachine),
-    textureAllocator(textureAllocator),
-    window(window),
-    switchToState(0),
-    currentSeconds(0.f),
-    showForSeconds(1.f)
-    {}
+SceneSplash::SceneSplash(GameContext& game) : game(game) {}
 
 void SceneSplash::OnCreate()
 {
 
-    auto didLoad = textureAllocator.Add("splash", workingDir.Get() + "splash.png");
+    auto didLoad = game.resourceManager.AddTexture("splash", game.workingDir.Get() + "splash.png");
 
     if (didLoad)
     {
-        splashSprite.setTexture(*textureAllocator.Get("splash"));
+        splashSprite.setTexture(*game.resourceManager.GetTexture("splash"));
 
         sf::FloatRect spriteSize = splashSprite.getLocalBounds();
 
         splashSprite.setOrigin(spriteSize.width * 0.5f, spriteSize.height * 0.5f);
         
-        sf::Vector2u windowCenter = window.GetCenter();
+        sf::Vector2u windowCenter = game.window.GetCenter();
 
         splashSprite.setPosition(windowCenter.x, windowCenter.y);
     }
@@ -52,7 +39,7 @@ void SceneSplash::Update(float deltaTime)
 
     if (currentSeconds >= showForSeconds)
     {
-        sceneStateMachine.SwitchTo(switchToState);
+        game.sceneStateMachine.SwitchTo(switchToState);
     }
 }
 

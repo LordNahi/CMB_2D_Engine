@@ -12,17 +12,14 @@ class C_KeyboardMovement : public Component
     public:
         C_KeyboardMovement(Object* owner);
 
-        void SetInput(Input* input);
         void SetMovementSpeed(int moveSpeed);
 
         void Awake() override;
         void Update(float deltaTime) override;
 
     private:
-        int moveSpeed;
-        Input* input;
+        int moveSpeed = 100;
 
-        std::shared_ptr<C_Animation> c_animation;
         std::shared_ptr<C_Sprite> c_sprite;
 };
 

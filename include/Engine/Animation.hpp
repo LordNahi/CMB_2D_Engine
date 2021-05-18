@@ -7,12 +7,12 @@
 // TODO: Initialize all your values besides string ...
 struct FrameData
 {
-    std::string key;            // Texture key
-    int x;                      // x position of sprite in the texture
-    int y;                      // y position of sprite in the texture
-    int width;                  // Width of sprite
-    int height;                 // height of sprite
-    float displayTimeSeconds;   // How long to display the frame
+    std::string key;          // Texture key
+    int x;                    // x position of sprite in the texture
+    int y;                    // y position of sprite in the texture
+    int width;                // Width of sprite
+    int height;               // height of sprite
+    float displayTimeSeconds; // How long to display the frame
 };
 
 class Animation
@@ -21,8 +21,10 @@ class Animation
         Animation();
 
         void AddFrame(std::string key, int x, int y, int width, int height, float frameTime);
+        void AddFrame(FrameData frame);
         bool UpdateFrame(float deltaTime);
         void Reset();
+        int  Size();
         FrameData* GetCurrentFrame();
     
     private:

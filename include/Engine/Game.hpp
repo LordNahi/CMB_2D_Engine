@@ -1,11 +1,8 @@
 #ifndef Game_hpp
 #define Game_hpp
 
-#include "Window.hpp"
-#include "WorkingDirectory.hpp"
 #include "Input.hpp"
-#include "SceneStateMachine.hpp"
-#include "ResourceAllocator.hpp"
+#include "GameContext.hpp"
 
 // Game Scenes ...
 #include "SceneSplash.hpp"
@@ -24,14 +21,10 @@ class Game
         bool IsRunning() const;
 
     private:
-        Window window;
-        WorkingDirectory workingDir;
-        ResourceAllocator<sf::Texture> textureAllocator;
+        GameContext game;
 
         sf::Clock clock;
         float deltaTime;
-
-        SceneStateMachine sceneStateMachine;
 };
 
 #endif /* Game_hpp */

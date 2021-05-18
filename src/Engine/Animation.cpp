@@ -20,6 +20,16 @@ void Animation::AddFrame(std::string key, int x, int y, int width, int height, f
     frames.push_back(data);
 }
 
+void Animation::AddFrame(FrameData frame)
+{
+    frames.push_back(frame);
+}
+
+int Animation::Size()
+{
+    return frames.size();
+}
+
 FrameData* Animation::GetCurrentFrame()
 {
     if (frames.size() > 0)

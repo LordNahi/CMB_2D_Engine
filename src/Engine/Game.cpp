@@ -2,47 +2,47 @@
 
 #include "Game.hpp"
 
-Game::Game() : window("mcflurry")
+Game::Game()
 {
-    auto sceneSplash = std::make_shared<SceneSplash>(workingDir, sceneStateMachine, textureAllocator, window);
-    auto sceneGame = std::make_shared<SceneGame>(workingDir, textureAllocator);
+    auto sceneSplash = std::make_shared<SceneSplash>(game);
+    auto sceneGame = std::make_shared<SceneGame>(game);
 
-    unsigned int sceneSplashID = sceneStateMachine.Add(sceneSplash);
-    unsigned int sceneGameID = sceneStateMachine.Add(sceneGame);
+    unsigned int sceneSplashID = game.sceneStateMachine.Add(sceneSplash);
+    unsigned int sceneGameID = game.sceneStateMachine.Add(sceneGame);
 
     sceneSplash->SetSwitchToScene(sceneGameID);
     
-    sceneStateMachine.SwitchTo(sceneSplashID);
+    game.sceneStateMachine.SwitchTo(sceneSplashID);
 
     deltaTime = clock.restart().asSeconds();
 }
 
 void Game::ProcessInput()
 {
-    sceneStateMachine.ProcessInput();
+    game.sceneStateMachine.ProcessInput();
 }
 
 void Game::Update() {
-    window.Update();
+    game.window.Update();
 
-    sceneStateMachine.Update(deltaTime);
+    game.sceneStateMachine.Update(deltaTime);
 }
 
 void Game::LateUpdate() {
-    sceneStateMachine.LateUpdate(deltaTime);
+    game.sceneStateMachine.LateUpdate(deltaTime);
 }
 
 void Game::Draw() {
-    window.BeginDraw();
+    game.window.BeginDraw();
 
-    sceneStateMachine.Draw(window);
+    game.sceneStateMachine.Draw(game.window);
 
-    window.EndDraw();
+    game.window.EndDraw();
 }
 
 bool Game::IsRunning() const
 {
-    return window.IsOpen();
+    return game.window.IsOpen();
 }
 
 void Game::CalculateDeltaTime()

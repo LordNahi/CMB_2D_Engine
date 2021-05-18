@@ -3,18 +3,12 @@
 
 #include <SFML/Graphics.hpp>
 
-#include "ResourceAllocator.hpp"
-#include "SceneStateMachine.hpp"
-#include "WorkingDirectory.hpp"
+#include "GameContext.hpp"
 
 class SceneSplash : public Scene
 {
     public:
-        SceneSplash(
-            WorkingDirectory& workingDir,
-            SceneStateMachine& sceneStateMaching,
-            ResourceAllocator<sf::Texture>& textureAllocator,
-            Window& window);
+        SceneSplash(GameContext& game);
 
         void OnCreate() override;
         void OnDestroy() override;
@@ -26,15 +20,12 @@ class SceneSplash : public Scene
         void Draw(Window& window) override;
 
     private:
-        WorkingDirectory& workingDir;
-        SceneStateMachine& sceneStateMachine;
-        ResourceAllocator<sf::Texture>& textureAllocator;
-        Window& window;
+        GameContext& game;
 
         sf::Sprite splashSprite;
 
-        float showForSeconds;
-        float currentSeconds;
+        float showForSeconds = 5.f;
+        float currentSeconds = 0.f;
 
         unsigned int switchToState;
 };

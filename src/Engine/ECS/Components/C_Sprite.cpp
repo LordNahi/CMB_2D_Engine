@@ -3,20 +3,12 @@
 
 C_Sprite::C_Sprite(Object* owner) : Component(owner) { }
 
-void C_Sprite::SetTextureAllocator(ResourceAllocator<sf::Texture>* allocator)
+void C_Sprite::LoadTexture(const std::string& key)
 {
-    this->allocator = allocator;
-}
-
-void C_Sprite::Load(const std::string& key)
-{
-    if (allocator)
+    if (owner->game.resourceManager.HasTexture(key))
     {
-        if (allocator->Has(key))
-        {
-            std::shared_ptr<sf::Texture> texture = allocator->Get(key);
-            sprite.setTexture(*texture);
-        }
+        std::shared_ptr<sf::Texture> texture = owner->game.resourceManager.GetTexture(key);
+        sprite.setTexture(*texture);
     }
 }
 
