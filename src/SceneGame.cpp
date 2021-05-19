@@ -7,6 +7,21 @@ SceneGame::SceneGame(GameContext& game) : game(game) {}
 
 void SceneGame::OnCreate()
 {
+    /**
+     * DAVE: Is there som way we can create compound classes or
+     * something along those lines? It'd be cool if I could create
+     * my objects similar to...
+     * 
+     * auto player = Object<C_Sprite, C_Animation, C_Keyboard>();
+     * 
+     * player.FlipX()                (from C_Sprite)
+     * player.AddAnimation(...)      (from C_Animation)
+     * 
+     * if (player.IsKeyPressed(...)) (from C_Keyboard)
+     * 
+     * Unsure if this is possible or even feasable but ask Dave ...
+     */
+
     game.resourceManager.AddTexture("viking", game.workingDir.Get() + "viking.png");
     game.resourceManager.AddSpritesheet("viking", game.workingDir.Get() + "viking.png", 5, 4);
 
