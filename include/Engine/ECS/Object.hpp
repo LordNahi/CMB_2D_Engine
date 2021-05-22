@@ -36,6 +36,8 @@ class Object
 
             if (component)
             {
+                // Important, we can't have more than one of the same component
+                // type in out component list ...
                 return component;
             }
             else
@@ -51,9 +53,16 @@ class Object
 
         template <typename T> std::shared_ptr<T> GetComponent()
         {
-            static_assert(std::is_base_of<Component, T>::value, "T must derive from Component");
+            // Concept should take care of this now, but keeping as not 100% ...
+            // static_assert(std::is_base_of<Component, T>::value, "T must derive from Component");
 
-            // Check if component exists in out 
+            /**
+             * Guarantees we get the correct component back. Since we only
+             * have a type parameter, while iterating through out components
+             * we check if it can be dynamically cast to type T, our T is
+             * constrained to an ECSComponent, if it successfully casts then
+             * we know we've found the right component, finally return ...
+             */
             for (auto& component : components)
             {
                 if (std::dynamic_pointer_cast<T>(component))
