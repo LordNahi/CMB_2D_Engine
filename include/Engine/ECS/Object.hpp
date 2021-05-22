@@ -51,7 +51,7 @@ class Object
             }
         }
 
-        template <typename T> std::shared_ptr<T> GetComponent()
+        template <ECSComponent T> std::shared_ptr<T> GetComponent()
         {
             // Concept should take care of this now, but keeping as not 100% ...
             // static_assert(std::is_base_of<Component, T>::value, "T must derive from Component");
