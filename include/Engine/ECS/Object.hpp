@@ -1,6 +1,7 @@
 #ifndef Object_hpp
 #define Object_hpp
 
+#include <type_traits>
 #include <memory>
 #include <vector>
 
@@ -9,6 +10,8 @@
 #include "GameContext.hpp"
 #include "C_Transform.hpp"
 
+template <typename T>
+concept ECSComponent = std::is_base_of<Component, T>::value;
 
 class Object
 {
@@ -27,7 +30,7 @@ class Object
         void Remove();
         bool GetIsRemoving();
 
-        template <typename T> std::shared_ptr<T> AddComponent()
+        template <ECSComponent T> std::shared_ptr<T> AddComponent()
         {
             auto component = GetComponent<T>();
 
