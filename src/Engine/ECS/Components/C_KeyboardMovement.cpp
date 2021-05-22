@@ -8,7 +8,16 @@ C_KeyboardMovement::C_KeyboardMovement(Object* owner) : Component(owner) {}
 
 void C_KeyboardMovement::Awake()
 {
-    c_sprite = owner->GetComponent<C_Sprite>();
+    /**
+     * NOTE: Currently have no real way of guaranteeing the component
+     * recieves all necessary dependant components, should I be doing
+     * something like `static_assert` or maybe just null checking?
+     * Ideally if I can detect the components can't be retrieved then
+     * I don't want the code to compile ...
+     */
+
+    c_sprite    = owner->GetComponent<C_Sprite>();
+    c_animation = owner->GetComponent<C_Animation>();
 }
 
 void C_KeyboardMovement::SetMovementSpeed(int moveSpeed)
@@ -48,6 +57,15 @@ void C_KeyboardMovement::Update(float deltaTime)
     }
 
     movement *= deltaTime;
+
+    if (movement.x != 0.f || movement.y != 0.f)
+    {
+        c_animation->SetAnimationState(AnimationState::Walk);
+    }
+    else
+    {
+        c_animation->SetAnimationState(AnimationState::Idle);
+    }
 
     owner->transform->AddPosition(movement);
 }
