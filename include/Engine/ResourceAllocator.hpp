@@ -6,6 +6,11 @@
 #include <string>
 #include <iostream>
 
+/**
+ * NOTE: This class is NO LONGER USED however kept
+ * for future reference ...
+ */
+
 template <typename T>
 class ResourceAllocator
 {
