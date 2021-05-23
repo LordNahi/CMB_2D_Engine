@@ -4,7 +4,6 @@ target_sources(${CMAKE_PROJECT_NAME}
     PRIVATE
         Animation.cpp
         Bitmask.cpp
-        Game.cpp
         Input.cpp
         Main.cpp
         Window.cpp

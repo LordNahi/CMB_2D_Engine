@@ -4,15 +4,15 @@
 
 Game::Game()
 {
-    auto sceneSplash = std::make_shared<SceneSplash>(game);
+    // auto sceneSplash = std::make_shared<SceneSplash>(game);
     auto sceneGame = std::make_shared<SceneGame>(game);
 
-    unsigned int sceneSplashID = game.sceneStateMachine.Add(sceneSplash);
+    // unsigned int sceneSplashID = game.sceneStateMachine.Add(sceneSplash);
     unsigned int sceneGameID = game.sceneStateMachine.Add(sceneGame);
 
-    sceneSplash->SetSwitchToScene(sceneGameID);
+    // sceneSplash->SetSwitchToScene(sceneGameID);
     
-    game.sceneStateMachine.SwitchTo(sceneSplashID);
+    game.sceneStateMachine.SwitchTo(sceneGameID);
 
     deltaTime = clock.restart().asSeconds();
 }
