@@ -23,7 +23,8 @@ void Input::Update()
         (sf::Keyboard::isKeyPressed(sf::Keyboard::Down)) ||
         (sf::Keyboard::isKeyPressed(sf::Keyboard::S)));
 
-    thisFrameKeys.SetBit((int)Key::Esc),
+    thisFrameKeys.SetBit((int)Key::Attack,
+        sf::Keyboard::isKeyPressed(sf::Keyboard::Space));
         sf::Keyboard::isKeyPressed(sf::Keyboard::Escape);
 };
 

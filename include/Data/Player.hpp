@@ -9,8 +9,8 @@ namespace Data::Player
 
     enum class AnimationState
     {
-        None,
         Idle,
-        Walk
+        Walk,
+        Attack
     };
 }
