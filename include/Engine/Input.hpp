@@ -15,7 +15,8 @@ class Input
             Right = 2,
             Up = 3,
             Down = 4,
-            Esc = 5
+            Attack = 5,
+            Menu = 6
         };
 
         void Update();
@@ -23,7 +24,7 @@ class Input
         bool IsKeyPressed(Key keycode);
         bool IsKeyDown(Key keycode);
         bool IsKeyUp(Key keycode);
-    
+
     private:
         Bitmask thisFrameKeys;
         Bitmask lastFrameKeys;
