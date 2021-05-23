@@ -25,6 +25,8 @@ void Input::Update()
 
     thisFrameKeys.SetBit((int)Key::Attack,
         sf::Keyboard::isKeyPressed(sf::Keyboard::Space));
+
+    thisFrameKeys.SetBit((int)Key::Menu),
         sf::Keyboard::isKeyPressed(sf::Keyboard::Escape);
 };
 
