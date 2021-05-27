@@ -1,10 +1,7 @@
 #include "C_Animation.hpp"
 #include "Object.hpp"
 
-C_Animation::C_Animation(Object* owner) : Component(owner), currentAnimation(0, nullptr)
-{
-
-}
+C_Animation::C_Animation(Object* owner) : Component(owner) {}
 
 void C_Animation::Awake()
 {
