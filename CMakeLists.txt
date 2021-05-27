@@ -32,6 +32,7 @@ target_link_libraries(
         project_warnings
         CONAN_PKG::sfml
         CONAN_PKG::fmt
+        CONAN_PKG::rapidxml
 )
 
 # Compile list of user include dirs ...
