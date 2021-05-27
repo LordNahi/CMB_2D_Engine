@@ -67,13 +67,6 @@ class C_Animation : public Component
         template<Enumerable T>
         void SetAnimationState(T const& state)
         {
-            RefreshAnimationSprite();
-
-            /**
-             * DAVID: State is internally handled as an int, but we
-             * type constrain public facing methods as enums, so
-             * so we need to cast incoming state ...
-             */
             auto stateCast = static_cast<int>(state);
 
             // We only set an animation if it is not already
@@ -88,8 +81,10 @@ class C_Animation : public Component
             {
                 currentAnimation.first = animation->first;
                 currentAnimation.second = animation->second;
-
+                
                 currentAnimation.second->Reset();
+                
+                RefreshAnimationSprite();
             }
         }
 
@@ -99,11 +94,12 @@ class C_Animation : public Component
             return state == currentAnimation.first;
         }
 
+        int GetCurrentState();
         void RefreshAnimationSprite();
 
     private:
         // Required components ...
-        std::shared_ptr<C_Sprite> sprite;
+        std::shared_ptr<C_Sprite> c_sprite;
 
         std::map<int, std::shared_ptr<Animation>> animations;
         std::pair<int, std::shared_ptr<Animation>> currentAnimation = {-1, nullptr};
