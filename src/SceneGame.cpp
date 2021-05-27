@@ -36,7 +36,7 @@ void SceneGame::OnCreate()
     auto animation = player->AddComponent<C_Animation>();
     animation->CreateAnimation("viking", {3, 4, 5, 6}, AnimationState::Idle);
     animation->CreateAnimation("viking", {13, 14, 15, 16, 17, 18}, AnimationState::Walk);
-    animation->CreateAnimation("viking", {0, 1}, AnimationState::Attack);
+    animation->CreateAnimation("viking", {1, 0}, AnimationState::Attack);
 
     player->transform->SetX(300);
     player->transform->SetY(300);
