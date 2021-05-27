@@ -58,13 +58,42 @@ void C_KeyboardMovement::Update(float deltaTime)
 
     movement *= deltaTime;
 
-    if (movement.x != 0.f || movement.y != 0.f)
+    // Handle Animation State Management ...
+
+    const auto isMoving    = movement.x != 0.f || movement.y != 0.f;
+    const auto isAttacking = owner->game.input.IsKeyPressed(Input::Key::Attack);
+
+    switch(c_animation->GetCurrentState())
     {
-        c_animation->SetAnimationState(AnimationState::Walk);
-    }
-    else
-    {
-        c_animation->SetAnimationState(AnimationState::Idle);
+        case static_cast<int>(AnimationState::Idle):
+            if (isMoving)
+            {
+                c_animation->SetAnimationState(AnimationState::Walk);
+            }
+            else
+            {
+                c_animation->SetAnimationState(AnimationState::Idle);
+            }
+
+            if (isAttacking)
+            {
+                c_animation->SetAnimationState(AnimationState::Attack);
+            }
+            break;
+
+        case static_cast<int>(AnimationState::Walk):
+            if (!isMoving)
+            {
+                c_animation->SetAnimationState(AnimationState::Idle);
+            }
+            break;
+
+        case static_cast<int>(AnimationState::Attack):
+            if (!isAttacking)
+            {
+                c_animation->SetAnimationState(AnimationState::Idle);
+            }
+            break;
     }
 
     owner->transform->AddPosition(movement);

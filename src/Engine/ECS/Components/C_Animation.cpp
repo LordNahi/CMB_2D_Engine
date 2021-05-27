@@ -31,4 +31,8 @@ void C_Animation::RefreshAnimationSprite()
         sprite->LoadTexture(data.key);
         sprite->SetTextureRect(data.x, data.y, data.width, data.height);
     }
+
+int C_Animation::GetCurrentState()
+{
+    return currentAnimation.first;
 }
