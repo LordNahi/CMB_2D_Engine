@@ -5,7 +5,7 @@ C_Animation::C_Animation(Object* owner) : Component(owner) {}
 
 void C_Animation::Awake()
 {
-    sprite = owner->GetComponent<C_Sprite>();
+    c_sprite = owner->GetComponent<C_Sprite>();
 }
 
 void C_Animation::Update(float deltaTime)
@@ -23,14 +23,22 @@ void C_Animation::Update(float deltaTime)
 
 void C_Animation::RefreshAnimationSprite()
 {
-    if (currentAnimation.second)
+    /**
+     * NOTE: Important lesson learned here, it is unsafe to
+     * call on dependent components without first null checking.
+     * This is because every component an object may use will need
+     * to have their `Awake` function ran to ensure components are
+     * set up.
+     */
+
+    if (currentAnimation.second && c_sprite)
     {
-        // Is this the closest I can get to `FrameData&`? ...
         auto data = *currentAnimation.second->GetCurrentFrame();
 
-        sprite->LoadTexture(data.key);
-        sprite->SetTextureRect(data.x, data.y, data.width, data.height);
+        c_sprite->LoadTexture(data.key);
+        c_sprite->SetTextureRect(data.x, data.y, data.width, data.height);
     }
+}
 
 int C_Animation::GetCurrentState()
 {
