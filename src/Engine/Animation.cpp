@@ -32,7 +32,7 @@ int Animation::Size()
 
 FrameData* Animation::GetCurrentFrame()
 {
-    if (frames.size() > 0)
+    if (frames.size() > currentFrameIndex)
     {
         return &frames[currentFrameIndex];
     }
@@ -42,7 +42,7 @@ FrameData* Animation::GetCurrentFrame()
 
 bool Animation::UpdateFrame(float deltaTime)
 {
-    if (frames.size() > 0)
+    if (frames.size() > currentFrameIndex)
     {
         currentFrameTime += deltaTime;
 
