@@ -3,12 +3,10 @@
         {
             "name": "Win32",
             "includePath": [
-                "${workspaceFolder}\\include",
-                "${workspaceFolder}\\include\\Data",
-                "${workspaceFolder}\\include\\Engine",
-                "${workspaceFolder}\\include\\Engine\\ECS",
-                "${workspaceFolder}\\include\\Engine\\ECS\\Components",
-                "C:\\Users\\natha\\.conan\\data\\sfml\\2.5.1\\bincrafters\\stable\\package\\7fb22053704eee59cfda675d9b91bdb52a86d20c\\include"
+                "${workspaceFolder}\\include\\**",
+                "${workspaceFolder}\\include\\Data\\**",
+                "${workspaceFolder}\\include\\Engine\\**",
+                "C:\\Users\\natha\\.conan\\data\\**"
             ],
             "defines": [
                 "_DEBUG",
@@ -23,10 +21,8 @@
         {
             "name": "Linux",
             "includePath": [
-                "${workspaceFolder}/include",
-                "${workspaceFolder}/include/Engine",
-                "${workspaceFolder}/include/Engine/ECS",
-                "~/.conan/data/sfml/2.5.1/bincrafters/stable/source/source_subfolder/include"
+                "${workspaceFolder}/**/*",
+                "~/.conan/data/**"
             ],
             "cStandard": "gnu17",
             "cppStandard": "gnu++20",
