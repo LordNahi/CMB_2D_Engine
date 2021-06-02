@@ -5,6 +5,11 @@ void ObjectCollection::Add(std::shared_ptr<Object> object)
     newObjects.push_back(object);
 }
 
+void ObjectCollection::Add(std::vector<std::shared_ptr<Object>> objects)
+{
+    newObjects.insert(newObjects.end(), objects.begin(), objects.end());
+}
+
 void ObjectCollection::Update(float deltaTime)
 {
     for (auto& object : objects)
@@ -44,7 +49,7 @@ void ObjectCollection::ProcessNewObjects()
         }
 
         // Move all the new objects to our objects collection ...
-        objects.assign(newObjects.begin(), newObjects.end());
+        objects.insert(objects.end(), newObjects.begin(), newObjects.end());
 
         newObjects.clear();
     }

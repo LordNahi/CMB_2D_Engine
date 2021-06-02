@@ -3,25 +3,10 @@
 
 using namespace Data::Player;
 
-SceneGame::SceneGame(GameContext& game) : game(game) {}
+SceneGame::SceneGame(GameContext& game) : game(game), mapParser(game) {}
 
 void SceneGame::OnCreate()
 {
-    /**
-     * DAVE: Is there som way we can create compound classes or
-     * something along those lines? It'd be cool if I could create
-     * my objects similar to...
-     * 
-     * auto player = Object<C_Sprite, C_Animation, C_Keyboard>();
-     * 
-     * player.FlipX()                (from C_Sprite)
-     * player.AddAnimation(...)      (from C_Animation)
-     * 
-     * if (player.IsKeyPressed(...)) (from C_Keyboard)
-     * 
-     * Unsure if this is possible or even feasable but ask Dave ...
-     */
-
     game.resourceManager.AddTexture("viking", game.workingDir.Get() + "viking.png");
     game.resourceManager.AddSpritesheet("viking", game.workingDir.Get() + "viking.png", 5, 4);
 
@@ -41,6 +26,13 @@ void SceneGame::OnCreate()
     player->transform->SetX(300);
     player->transform->SetY(300);
 
+    // Level Creation Stuff ...
+    sf::Vector2i mapOffset(50, -150);
+    std::vector<std::shared_ptr<Object>> levelTiles
+        = mapParser.Parse(game.workingDir.Get() + "tilemap.tmx", mapOffset);
+
+    // Add in render order ...
+    objects.Add(levelTiles);
     objects.Add(player);
 }
 

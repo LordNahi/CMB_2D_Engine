@@ -4,13 +4,14 @@
 #include <memory>
 
 #include "ObjectCollection.hpp"
+#include "TileMapParser.hpp"
 #include "GameContext.hpp"
 #include "Input.hpp"
 #include "Scene.hpp"
 
+#include "C_KeyboardMovement.hpp"
 #include "C_Animation.hpp"
 #include "C_Sprite.hpp"
-#include "C_KeyboardMovement.hpp"
 
 class SceneGame : public Scene
 {
@@ -26,8 +27,9 @@ class SceneGame : public Scene
         void Draw(Window& window) override;
 
     private:
-        GameContext& game;
         ObjectCollection objects;
+        TileMapParser mapParser;
+        GameContext& game;
 };
 
 #endif /* SceneGame_hpp */

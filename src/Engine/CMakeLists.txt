@@ -9,6 +9,7 @@ target_sources(${CMAKE_PROJECT_NAME}
         Window.cpp
         WorkingDirectory.cpp
         SceneStateMachine.cpp
+        TileMapParser.cpp
         ObjectCollection.cpp
         ResourceManager.cpp
 )

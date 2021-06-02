@@ -18,7 +18,7 @@ bool ResourceManager::AddTexture(const std::string& key, const std::string& file
 
     std::cout << "Successfully loaded Texture: " << filePath << std::endl;
     return true;
-}
+} 
 
 bool ResourceManager::AddSpritesheet(const std::string& key, const std::string& filePath, int rowLength, int rowCount, int frameMax, float frameTime)
 {
