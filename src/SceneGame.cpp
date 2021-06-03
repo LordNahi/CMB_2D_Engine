@@ -29,7 +29,7 @@ void SceneGame::OnCreate()
     // Level Creation Stuff ...
     sf::Vector2i mapOffset(50, -150);
     std::vector<std::shared_ptr<Object>> levelTiles
-        = mapParser.Parse(game.workingDir.Get() + "tilemap.tmx", mapOffset);
+        = mapParser.Parse(game.workingDir.Get() + "tilemap_1.tmx", mapOffset);
 
     // Add in render order ...
     objects.Add(levelTiles);

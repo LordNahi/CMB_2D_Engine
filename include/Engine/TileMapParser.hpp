@@ -24,8 +24,9 @@ struct TileSheetData
 using namespace rapidxml;
 
 typedef std::vector<std::shared_ptr<Tile>> Layer;
-typedef std::map<std::string, std::shared_ptr<Layer>> TileMap; // Almost just prefer "Layers" as a name? ..
+typedef std::map<std::string, std::shared_ptr<Layer>> TileMap;
 typedef std::unordered_map<unsigned int, std::shared_ptr<TileInfo>> TileSet;
+typedef std::map<int, std::shared_ptr<TileSheetData>> TileSheets;
 
 class TileMapParser
 {
@@ -35,9 +36,9 @@ class TileMapParser
         std::vector<std::shared_ptr<Object>> Parse(const std::string& file, sf::Vector2i offset);
 
     private:
-        std::shared_ptr<TileSheetData> BuildTileSheetData(xml_node<>* rootNode);
+        std::shared_ptr<TileSheets> BuildTileSheetData(xml_node<>* rootNode);
         std::shared_ptr<TileMap> BuildTileMap(xml_node<>* rootNode);
-        std::pair<std::string, std::shared_ptr<Layer>> BuildLayer(xml_node<>* layerNode, std::shared_ptr<TileSheetData> tileSheetData);
+        std::pair<std::string, std::shared_ptr<Layer>> BuildLayer(xml_node<>* layerNode, std::shared_ptr<TileSheets> tileSheetData);
 
         GameContext& game;
 };
