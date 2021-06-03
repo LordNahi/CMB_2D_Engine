@@ -1,3 +1,7 @@
+// Arguable that the entire .vscode folder should be removed as it's non specific to the code
+// however, while it's just me developing the project it makes sense to not have to re-write
+// this file every time I screw up and delete it or move to a new PC ...
+
 {
     "configurations": [
         {
