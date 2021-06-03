@@ -28,10 +28,7 @@ void ObjectCollection::LateUpdate(float deltaTime)
 
 void ObjectCollection::Draw(Window& window)
 {
-    for (auto& object : objects)
-    {
-        object->Draw(window);
-    }
+    drawables.Draw(window);
 }
 
 void ObjectCollection::ProcessNewObjects()
@@ -50,6 +47,8 @@ void ObjectCollection::ProcessNewObjects()
 
         // Move all the new objects to our objects collection ...
         objects.insert(objects.end(), newObjects.begin(), newObjects.end());
+
+        drawables.Add(newObjects);
 
         newObjects.clear();
     }
@@ -72,4 +71,6 @@ void ObjectCollection::ProcessRemovals()
             ++objectIterator;
         }
     }
+
+    drawables.ProcessRemovals();
 }

@@ -33,10 +33,10 @@ std::vector<std::shared_ptr<Object>> TileMapParser::Parse(const std::string& fil
 
     std::vector<std::shared_ptr<Object>> tileObjects;
 
+    int layerCount = tiles->size() - 1;
+
     for (const auto& layer : *tiles)
     {
-        // TODO: I think layers may need to be processed in reverse? ...
-
         for (const auto& tile : *layer.second)
         {
             std::shared_ptr<TileInfo> tileInfo = tile->properties;
@@ -51,6 +51,7 @@ std::vector<std::shared_ptr<Object>> TileMapParser::Parse(const std::string& fil
             sprite->LoadTexture(tileInfo->textureId);
             sprite->SetTextureRect(tileInfo->textureRect);
             sprite->SetScale(tileScale);
+            sprite->SetSortOrder(layerCount);
 
             // Calculate world position ...
             float x = tile->x * tileSizeX * tileScale + offset.x;
@@ -60,6 +61,8 @@ std::vector<std::shared_ptr<Object>> TileMapParser::Parse(const std::string& fil
 
             tileObjects.emplace_back(tileObject);
         }
+
+        layerCount--;
     }
 
     // We called `new` so I assume we need to do this? ...

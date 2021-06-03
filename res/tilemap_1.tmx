@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<map version="1.0" tiledversion="1.1.5" orientation="orthogonal" renderorder="right-down" width="60" height="10" tilewidth="32" tileheight="32" infinite="0" nextobjectid="1">
+<map version="1.5" tiledversion="1.6.0" orientation="orthogonal" renderorder="right-down" width="60" height="10" tilewidth="32" tileheight="32" infinite="0" nextlayerid="3" nextobjectid="1">
  <tileset firstgid="1" name="Tiles" tilewidth="32" tileheight="32" tilecount="90" columns="10">
   <image source="jungletiles.png" width="320" height="288"/>
  </tileset>
  <tileset firstgid="91" name="Collisions" tilewidth="32" tileheight="32" tilecount="1" columns="1">
   <image source="collisiontile.png" width="32" height="32"/>
  </tileset>
- <layer name="Platform" width="60" height="10">
+ <layer id="1" name="Platform" width="60" height="10">
   <data encoding="csv">
 0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
 0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
@@ -20,7 +20,7 @@
 41,42,42,42,42,42,42,42,42,42,42,42,42,42,42,42,42,42,42,42,81,82,82,82,82,82,82,82,82,82,82,82,82,82,82,82,83,42,42,42,42,42,42,42,42,42,43,0,0,0,0,0,0,0,0,0,0,0,0,0
 </data>
  </layer>
- <layer name="Collisions" width="60" height="10">
+ <layer id="2" name="Collisions" width="60" height="10">
   <data encoding="csv">
 0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
 0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,

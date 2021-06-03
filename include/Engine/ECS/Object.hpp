@@ -8,7 +8,9 @@
 #include "Window.hpp"
 #include "Component.hpp"
 #include "GameContext.hpp"
+
 #include "C_Transform.hpp"
+#include "C_Drawable.hpp"
 
 template <typename T>
 concept ECSComponent = std::is_base_of<Component, T>::value;
@@ -47,22 +49,19 @@ class Object
                 std::shared_ptr<T> newComponent = std::make_shared<T>(this);
                 components.push_back(newComponent);
 
+                if (std::dynamic_pointer_cast<C_Drawable>(newComponent))
+                {
+                    drawable = std::dynamic_pointer_cast<C_Drawable>(newComponent);
+                }
+
                 return newComponent;
             }
         }
 
+        std::shared_ptr<C_Drawable> GetDrawable();
+
         template <ECSComponent T> std::shared_ptr<T> GetComponent()
         {
-            // Concept should take care of this now, but keeping as not 100% ...
-            // static_assert(std::is_base_of<Component, T>::value, "T must derive from Component");
-
-            /**
-             * Guarantees we get the correct component back. Since we only
-             * have a type parameter, while iterating through out components
-             * we check if it can be dynamically cast to type T, our T is
-             * constrained to an ECSComponent, if it successfully casts then
-             * we know we've found the right component, finally return ...
-             */
             for (auto& component : components)
             {
                 if (std::dynamic_pointer_cast<T>(component))
@@ -73,6 +72,8 @@ class Object
 
             return nullptr;
         }
+
+        GameContext& game;
 
         /**
          * Required Components ...
@@ -87,9 +88,8 @@ class Object
          * we probably want most things to have an x/y coordinate
          * and to be moveable/rotatable/scalable etc.
          */
-
-        GameContext& game;
         std::shared_ptr<C_Transform> transform;
+        std::shared_ptr<C_Drawable> drawable;
 
     private:
         std::vector<std::shared_ptr<Component>> components;

@@ -42,6 +42,7 @@ list(APPEND include_list
     include/Engine
     include/Engine/ECS
     include/Engine/ECS/Components
+    include/Engine/ECS/Systems
 )
 
 # Add user include list ...

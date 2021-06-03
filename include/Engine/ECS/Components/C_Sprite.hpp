@@ -3,10 +3,12 @@
 
 #include "Component.hpp"
 
+#include "C_Drawable.hpp"
+
 #include <string>
 #include <iostream>
 
-class C_Sprite : public Component
+class C_Sprite : public Component, public C_Drawable
 {
     public:
         C_Sprite(Object* owner);
