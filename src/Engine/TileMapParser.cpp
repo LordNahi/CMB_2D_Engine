@@ -23,7 +23,7 @@ std::vector<std::shared_ptr<Object>> TileMapParser::Parse(const std::string& fil
     xml_node<>* rootNode = doc.first_node("map");
 
     // Loads tile laters from XML ...
-    std::shared_ptr<TileMap> tiles = BuildTileMap(rootNode);
+    std::shared_ptr<TileMap> tileMap = BuildTileMap(rootNode);
 
     // We need these to calculate the tiles position in the world space ...
     int tileSizeX = std::atoi(rootNode->first_attribute("tilewidth")->value());
@@ -33,11 +33,11 @@ std::vector<std::shared_ptr<Object>> TileMapParser::Parse(const std::string& fil
 
     std::vector<std::shared_ptr<Object>> tileObjects;
 
-    int layerCount = tiles->size() - 1;
+    int layerCount = tileMap->size() - 1;
 
-    for (const auto& layer : *tiles)
+    for (const auto layer : *tileMap)
     {
-        for (const auto& tile : *layer.second)
+        for (const auto tile : layer.second->tiles)
         {
             std::shared_ptr<TileInfo> tileInfo = tile->properties;
             std::shared_ptr<Object> tileObject = std::make_shared<Object>(game);
@@ -45,13 +45,16 @@ std::vector<std::shared_ptr<Object>> TileMapParser::Parse(const std::string& fil
             // TODO: tile scale should be set at the data level ...
             const int tileScale = 3;
 
-            // Allocate sprite ...
-            auto sprite = tileObject->AddComponent<C_Sprite>();
+            if (layer.second->isVisible)
+            {
+                // Allocate sprite ...
+                auto sprite = tileObject->AddComponent<C_Sprite>();
 
-            sprite->LoadTexture(tileInfo->textureId);
-            sprite->SetTextureRect(tileInfo->textureRect);
-            sprite->SetScale(tileScale);
-            sprite->SetSortOrder(layerCount);
+                sprite->LoadTexture(tileInfo->textureId);
+                sprite->SetTextureRect(tileInfo->textureRect);
+                sprite->SetScale(tileScale);
+                sprite->SetSortOrder(layerCount);
+            }
 
             // Calculate world position ...
             float x = tile->x * tileSizeX * tileScale + offset.x;
@@ -205,13 +208,21 @@ std::pair<std::string, std::shared_ptr<Layer>> TileMapParser::BuildLayer(xml_nod
             tile->x = count % width - 1;
             tile->y = count / width;
 
-            layer->emplace_back(tile);
+            layer->tiles.emplace_back(tile);
         }
 
         count ++;
     }
 
     const std::string layerName = layerNode->first_attribute("name")->value();
+
+    bool layerVisible = true;
+    xml_attribute<>* visibleAttribute = layerNode->first_attribute("visible");
+    if (visibleAttribute)
+    {
+        layerVisible = static_cast<bool>(std::atoi(visibleAttribute->value()));
+    }
+    layer->isVisible = layerVisible;
 
     return std::make_pair(layerName, layer);
 }

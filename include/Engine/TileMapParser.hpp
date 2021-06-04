@@ -21,9 +21,14 @@ struct TileSheetData
     sf::Vector2u tileSize;
 };
 
+struct Layer
+{
+    std::vector<std::shared_ptr<Tile>> tiles;
+    bool isVisible;
+};
+
 using namespace rapidxml;
 
-typedef std::vector<std::shared_ptr<Tile>> Layer;
 typedef std::map<std::string, std::shared_ptr<Layer>> TileMap;
 typedef std::unordered_map<unsigned int, std::shared_ptr<TileInfo>> TileSet;
 typedef std::map<int, std::shared_ptr<TileSheetData>> TileSheets;
