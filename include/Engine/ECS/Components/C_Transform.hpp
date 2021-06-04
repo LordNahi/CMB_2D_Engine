@@ -20,10 +20,14 @@ class C_Transform : public Component
         void AddX(float x);
         void AddY(float y);
 
-        const sf::Vector2f& GetPosition() const;
+        void SetStatic(bool isStatic);
+
+        const sf::Vector2f& GetPosition();
+        const bool GetIsStatic();
 
     private:
         sf::Vector2f position;
+        bool isStaticTransform;
 };
 
 #endif /* C_Transform_hpp */

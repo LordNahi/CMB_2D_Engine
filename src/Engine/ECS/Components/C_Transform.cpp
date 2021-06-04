@@ -1,7 +1,16 @@
 #include "C_Transform.hpp"
 
 C_Transform::C_Transform(Object* owner)
-    : Component(owner), position(0.f, 0.f) { }
+:
+Component(owner),
+position(0.f, 0.f),
+isStaticTransform(false)
+{}
+
+void C_Transform::SetStatic(bool isStatic)
+{
+    isStaticTransform = isStatic;
+}
 
 void C_Transform::SetPosition(float x, float y)
 {
@@ -45,7 +54,12 @@ void C_Transform::AddY(float y)
     position.y += y;
 }
 
-const sf::Vector2f& C_Transform::GetPosition() const
+const sf::Vector2f& C_Transform::GetPosition()
 {
     return position;
+}
+
+const bool C_Transform::GetIsStatic()
+{
+    return isStaticTransform;
 }
