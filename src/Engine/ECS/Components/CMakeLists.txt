@@ -5,4 +5,7 @@ target_sources(${CMAKE_PROJECT_NAME}
         C_Transform.cpp
         C_KeyboardMovement.cpp
         C_Sprite.cpp
+        C_Collider.cpp
+        C_InstanceID.cpp
+        C_BoxCollider.cpp
 )

@@ -1,4 +1,5 @@
 add_subdirectory(ECS)
+add_subdirectory(Utilities)
 
 target_sources(${CMAKE_PROJECT_NAME}
     PRIVATE

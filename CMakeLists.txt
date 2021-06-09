@@ -40,6 +40,7 @@ list(APPEND include_list
     include
     include/Data
     include/Engine
+    include/Engine/Utilities
     include/Engine/ECS
     include/Engine/ECS/Components
     include/Engine/ECS/Systems

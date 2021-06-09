@@ -11,6 +11,7 @@
 
 #include "C_Transform.hpp"
 #include "C_Drawable.hpp"
+#include "C_InstanceID.hpp"
 
 template <typename T>
 concept ECSComponent = std::is_base_of<Component, T>::value;
@@ -90,6 +91,7 @@ class Object
          */
         std::shared_ptr<C_Transform> transform;
         std::shared_ptr<C_Drawable> drawable;
+        std::shared_ptr<C_InstanceID> instanceID;
 
     private:
         std::vector<std::shared_ptr<Component>> components;
