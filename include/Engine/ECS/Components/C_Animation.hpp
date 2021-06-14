@@ -96,6 +96,7 @@ class C_Animation : public Component
 
         int GetCurrentState();
         void RefreshAnimationSprite();
+        sf::IntRect GetAnimationFrameRect();
 
     private:
         // Required components ...

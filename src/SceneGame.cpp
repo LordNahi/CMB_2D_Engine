@@ -23,6 +23,16 @@ void SceneGame::OnCreate()
     animation->CreateAnimation("viking", {13, 14, 15, 16, 17, 18}, AnimationState::Walk);
     animation->CreateAnimation("viking", {1, 0}, AnimationState::Attack);
 
+    auto collider = player->AddComponent<C_BoxCollider>();
+    auto foo = animation->GetAnimationFrameRect();
+    collider->SetCollidable({
+        0,
+        0,
+        static_cast<float>(foo.width),
+        static_cast<float>(foo.height)
+    });
+    collider->SetLayer(CollisionLayer::Player);
+
     player->transform->SetX(300);
     player->transform->SetY(300);
 

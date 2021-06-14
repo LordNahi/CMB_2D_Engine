@@ -12,6 +12,7 @@
 #include "C_KeyboardMovement.hpp"
 #include "C_Animation.hpp"
 #include "C_Sprite.hpp"
+#include "C_BoxCollider.hpp"
 
 class SceneGame : public Scene
 {

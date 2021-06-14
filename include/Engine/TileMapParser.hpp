@@ -11,6 +11,7 @@
 #include "Tile.hpp"
 #include "Object.hpp"
 #include "C_Sprite.hpp"
+#include "C_BoxCollider.hpp"
 
 struct TileSheetData
 {

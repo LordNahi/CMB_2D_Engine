@@ -44,3 +44,13 @@ int C_Animation::GetCurrentState()
 {
     return currentAnimation.first;
 }
+
+sf::IntRect C_Animation::GetAnimationFrameRect()
+{
+    return {
+        currentAnimation.second->GetCurrentFrame()->x,
+        currentAnimation.second->GetCurrentFrame()->y,
+        currentAnimation.second->GetCurrentFrame()->width,
+        currentAnimation.second->GetCurrentFrame()->height
+    };
+}
