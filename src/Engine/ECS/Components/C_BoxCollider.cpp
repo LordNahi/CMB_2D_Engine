@@ -37,7 +37,7 @@ Manifold C_BoxCollider::Intersects(std::shared_ptr<C_Collider> other)
     Manifold m;
     m.colliding = false; // We default to not colliding ...
 
-    std::shared_ptr<C_BoxCollider> boxCollider = std::dynamic_pointer_cast<C_BoxCollider>(other);
+    auto boxCollider = std::dynamic_pointer_cast<C_BoxCollider>(other);
 
     if (boxCollider)
     {

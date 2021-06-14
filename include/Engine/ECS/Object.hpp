@@ -61,8 +61,10 @@ class Object
 
         std::shared_ptr<C_Drawable> GetDrawable();
 
-        template <ECSComponent T> std::shared_ptr<T> GetComponent()
+        template <typename T> std::shared_ptr<T> GetComponent()
         {
+            // Temporarily removed 
+
             for (auto& component : components)
             {
                 if (std::dynamic_pointer_cast<T>(component))
