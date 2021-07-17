@@ -8,6 +8,8 @@
 #include "GameContext.hpp"
 #include "Input.hpp"
 #include "Scene.hpp"
+#include "Debug.hpp"
+#include "Player.hpp"
 
 #include "C_KeyboardMovement.hpp"
 #include "C_Animation.hpp"

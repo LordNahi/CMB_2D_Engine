@@ -15,6 +15,19 @@ void C_BoxCollider::SetCollidable(const sf::FloatRect& rect)
     SetPosition();
 }
 
+void C_BoxCollider::SetOrigin(const float origin)
+{
+    SetOrigin(origin, origin);
+    SetPosition();
+}
+
+void C_BoxCollider::SetOrigin(const float originX, const float originY)
+{
+    offset.x = AABB.width * originX;
+    offset.y = AABB.height * originY;
+    SetPosition();
+}
+
 const sf::FloatRect& C_BoxCollider::GetCollidable()
 {
     SetPosition();
@@ -23,13 +36,10 @@ const sf::FloatRect& C_BoxCollider::GetCollidable()
 
 void C_BoxCollider::SetPosition()
 {
-    // TODO: May need to factor transform origin into this formula ...
-    // TODO: May also need to factor transform scale in ...
-
     const sf::Vector2f& pos = owner->transform->GetPosition();
 
-    AABB.left = pos.x - (AABB.width / 2) + offset.x;
-    AABB.top = pos.y - (AABB.height / 2) + offset.y;
+    AABB.left = pos.x - offset.x;
+    AABB.top = pos.y - offset.y;
 }
 
 Manifold C_BoxCollider::Intersects(std::shared_ptr<C_Collider> other)

@@ -1,7 +1,7 @@
 #include "Window.hpp"
 
 Window::Window(const std::string& windowName)
-    : window(sf::VideoMode(1280, 720), windowName, sf::Style::Close)
+    : window(sf::VideoMode(1920, 1080), windowName, sf::Style::Close)
 {
     window.setVerticalSyncEnabled(true);
 }
@@ -27,6 +27,11 @@ void Window::BeginDraw()
 void Window::Draw(const sf::Drawable& drawable)
 {
     window.draw(drawable);
+}
+
+void Window::Draw(const sf::Vertex* vertices, std::size_t vertexCount, sf::PrimitiveType type)
+{
+    window.draw(vertices, vertexCount, type);
 }
 
 void Window::EndDraw()

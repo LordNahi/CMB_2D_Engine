@@ -7,7 +7,7 @@ WorkingDirectory::WorkingDirectory()
      * you build to prevent having to use `../../` ...
      */
 
-    path = "../../res/";
+    path = "..\\..\\res\\";
 
     /**
      * Tutorial includes code that manages assets correctly

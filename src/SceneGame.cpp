@@ -1,5 +1,4 @@
 #include "SceneGame.hpp"
-#include "Player.hpp"
 
 using namespace Data::Player;
 
@@ -15,7 +14,7 @@ void SceneGame::OnCreate()
     auto movement = player->AddComponent<C_KeyboardMovement>();
 
     auto sprite = player->AddComponent<C_Sprite>();
-    sprite->SetScale(5);
+    sprite->SetScale(3);
     sprite->SetOrigin(.4f);
     
     auto animation = player->AddComponent<C_Animation>();
@@ -25,13 +24,15 @@ void SceneGame::OnCreate()
 
     auto collider = player->AddComponent<C_BoxCollider>();
     auto foo = animation->GetAnimationFrameRect();
+    // TODO: When Sprite.SetScale() is called, if it has a box collider, it must be scaled accordingly ...
     collider->SetCollidable({
         0,
         0,
-        static_cast<float>(foo.width),
-        static_cast<float>(foo.height)
+        static_cast<float>(foo.width * sprite->GetScale().x),
+        static_cast<float>(foo.height * sprite->GetScale().x)
     });
     collider->SetLayer(CollisionLayer::Player);
+    collider->SetOrigin(.5f, .55f); // Should this automatically happen when sprite sets origin? ...
 
     player->transform->SetX(300);
     player->transform->SetY(300);
@@ -69,4 +70,6 @@ void SceneGame::LateUpdate(float deltaTime)
 void SceneGame::Draw(Window& window)
 {
     objects.Draw(window);
+    
+    Debug::Draw(window);
 }

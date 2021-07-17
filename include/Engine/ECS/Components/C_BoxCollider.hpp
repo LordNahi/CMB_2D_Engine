@@ -13,6 +13,8 @@ class C_BoxCollider : public C_Collider
         void ResolveOverlap(const Manifold& manifold) override;
 
         void SetCollidable(const sf::FloatRect& rect);
+        void SetOrigin(const float origin);
+        void SetOrigin(const float originX, const float originY);
         const sf::FloatRect& GetCollidable();
 
     private:

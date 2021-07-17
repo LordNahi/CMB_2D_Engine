@@ -4,8 +4,10 @@
 #include <memory>
 #include <vector>
 
-#include "C_BoxCollider.hpp"
 #include "Object.hpp"
+#include "Debug.hpp"
+
+#include "C_BoxCollider.hpp"
 
 class Quadtree
 {
@@ -26,6 +28,9 @@ class Quadtree
 
         // Remove all objects from tree ...
         void Clear();
+
+        // Visualise the current structure of our quadtree ...
+        void DrawDebug();
 
         // Returns vector of colliders that intersect with the `area` ...
         std::vector<std::shared_ptr<C_BoxCollider>> Search(const sf::FloatRect& area);

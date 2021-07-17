@@ -1,6 +1,6 @@
 #include "Quadtree.hpp"
 
-Quadtree::Quadtree() : Quadtree(5, 5, 0, {0.f, 0.f, 1920, 1080}, nullptr) {}
+Quadtree::Quadtree() : Quadtree(5, 5, 0, {0.f, 0.f, 2000, 2000}, nullptr) {}
 
 Quadtree::Quadtree(
     int maxObjects,
@@ -201,15 +201,31 @@ int Quadtree::GetChildIndexForObject(const sf::FloatRect& objectBounds)
 
 void Quadtree::Split()
 {
-    float childWidth = bounds.width / 2;
-    float childHeight = bounds.height / 2;
+    const int childWidth = bounds.width / 2;
+    const int childHeight = bounds.height / 2;
 
-    children[childNE] = std::make_shared<Quadtree>(maxObjects, maxLevels, level + 1,
-        sf::FloatRect(bounds.left + childWidth, bounds.top, bounds.left + bounds.width, bounds.top + childHeight), this);
-    children[childNW] = std::make_shared<Quadtree>(maxObjects, maxLevels, level + 1,
-        sf::FloatRect(bounds.left, bounds.top, bounds.left + childWidth, bounds.top + childHeight), this);
-    children[childSE] = std::make_shared<Quadtree>(maxObjects, maxLevels, level + 1,
-        sf::FloatRect(bounds.left + childWidth, bounds.top + childHeight, bounds.left + bounds.width, bounds.top + bounds.height), this);
-    children[childSW] = std::make_shared<Quadtree>(maxObjects, maxLevels, level + 1,
-        sf::FloatRect(bounds.left, bounds.top + childHeight, bounds.left + childWidth, bounds.top + bounds.height), this);
+    children[childNE] = std::make_shared<Quadtree>(maxObjects, maxLevels, level + 1, 
+        sf::FloatRect(bounds.left + childWidth, bounds.top, childWidth, childHeight), this);
+
+    children[childNW] = std::make_shared<Quadtree>(maxObjects, maxLevels, level + 1, 
+        sf::FloatRect(bounds.left, bounds.top, childWidth, childHeight), this);
+
+    children[childSW] = std::make_shared<Quadtree>(maxObjects, maxLevels, level + 1, 
+        sf::FloatRect(bounds.left, bounds.top + childHeight, childWidth, childHeight), this);
+    
+    children[childSE] = std::make_shared<Quadtree>(maxObjects, maxLevels, level + 1, 
+        sf::FloatRect(bounds.left + childWidth, bounds.top + childHeight, childWidth, childHeight), this);
+}
+
+void Quadtree::DrawDebug()
+{
+    if (children[0] != nullptr)
+    {
+        children[childNE]->DrawDebug();
+        children[childNW]->DrawDebug();
+        children[childSW]->DrawDebug();
+        children[childSE]->DrawDebug();
+    }
+
+    Debug::DrawRect(bounds, sf::Color::Red);
 }

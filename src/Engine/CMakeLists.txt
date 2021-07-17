@@ -13,4 +13,5 @@ target_sources(${CMAKE_PROJECT_NAME}
         TileMapParser.cpp
         ObjectCollection.cpp
         ResourceManager.cpp
+        Debug.cpp
 )

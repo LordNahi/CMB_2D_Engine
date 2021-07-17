@@ -67,6 +67,8 @@ void S_Collidable::ProcessRemovals()
 
 void S_Collidable::Update()
 {
+    collisionTree.DrawDebug();
+
     collisionTree.Clear();
 
     for (auto maps = collidables.begin(); maps != collidables.end(); ++maps)
@@ -74,6 +76,7 @@ void S_Collidable::Update()
         for (auto collidable : maps->second)
         {
             collisionTree.Insert(collidable);
+            Debug::DrawRect(collidable->GetCollidable(), sf::Color::Green);
         }
     }
 
@@ -141,6 +144,9 @@ void S_Collidable::Resolve()
 
                     if (m.colliding)
                     {
+                        Debug::DrawRect(layerCollidable->GetCollidable());
+                        Debug::DrawRect(quadtreeCollidable->GetCollidable());
+
                         if (quadtreeCollidable->owner->transform->GetIsStatic())
                         {
                             layerCollidable->ResolveOverlap(m);
