@@ -24,5 +24,3 @@ cmake ..
 ```
 cmake --build .
 ```
-
-Or, if you're using VSCode use the tasks I've committed (:<
