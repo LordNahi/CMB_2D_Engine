@@ -9,15 +9,6 @@ include(cmake/StandardProjectSettings.cmake)
 add_library(project_options INTERFACE)
 target_compile_features(project_options INTERFACE cxx_std_20)
 
-# Link this 'library' to use warnings specified in CompilerWarnings.cmake ...
-add_library(project_warnings INTERFACE)
-
-# Standard compiler warnings.
-include(cmake/CompilerWarnings.cmake)
-
-# TODO: Uncomment the following line and fix the issues that come up ...
-# set_project_warnings(project_warnings)
-
 # Conan
 include(cmake/Conan.cmake)
 run_conan()
@@ -29,7 +20,6 @@ target_link_libraries(
     ${CMAKE_PROJECT_NAME}
     PRIVATE
         project_options
-        project_warnings
         CONAN_PKG::sfml
         CONAN_PKG::fmt
         CONAN_PKG::rapidxml
